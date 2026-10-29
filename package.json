@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "TP Global Services - Unified Digital Platform for TP Stitches, Travels & Tours, Event Planner and Beauty Studio across Nigeria and Cape Verde",
   "scripts": {
+    "build": "echo 'Static build complete'",
     "start": "node dev-server.js",
     "dev": "node dev-server.js"
   },
