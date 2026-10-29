@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TP Global Services | Luxury Fashion, Travels, Events & Beauty</title>
+  <meta name="description" content="TP Global Services brings together distinctive African luxury fashion (TP Stitches), travels & tours, premier event planning, and beauty studio across Nigeria and Cape Verde.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Main Navigation Header (Single Unified Razor-Sharp Bar) -->
+  <header class="site-header" id="mainHeader">
+    <div class="container header-inner">
+      <!-- Minimalist Tech-Luxury Wordmark -->
+      <a href="#home" class="brand-logo" onclick="navigateTo('home')">
+        <div class="logo-mark">TP</div>
+        <div class="brand-text">
+          <span class="brand-name">TP GLOBAL<span class="dot-accent">.</span></span>
+          <span class="brand-country-tag">🇳🇬 NG • 🇨🇻 CV</span>
+        </div>
+      </a>
+
+      <!-- Desktop Floating Segmented Nav -->
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active" data-nav="home" onclick="navigateTo('home')">Home</a></li>
+          <li><a href="#stitches" class="nav-link" data-nav="stitches" onclick="navigateTo('stitches')">Fashion</a></li>
+          <li><a href="#travels" class="nav-link" data-nav="travels" onclick="navigateTo('travels')">Travels</a></li>
+          <li><a href="#events" class="nav-link" data-nav="events" onclick="navigateTo('events')">Events</a></li>
+          <li><a href="#beauty" class="nav-link" data-nav="beauty" onclick="navigateTo('beauty')">Beauty</a></li>
+          <li><a href="#about" class="nav-link" data-nav="about" onclick="navigateTo('about')">About</a></li>
+          <li><a href="#contact" class="nav-link" data-nav="contact" onclick="navigateTo('contact')">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Utility Actions -->
+      <div class="header-actions">
+        <!-- Segmented Currency Pill -->
+        <div class="currency-segmented" title="Switch Display Currency">
+          <button type="button" class="curr-btn active" data-currency="NGN">₦ NGN</button>
+          <button type="button" class="curr-btn" data-currency="GBP">£ GBP</button>
+        </div>
+
+        <!-- Admin Portal Icon Button -->
+        <a href="#admin" class="admin-icon-btn" title="Owner & Lead Inbox" onclick="navigateTo('admin')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <span class="lead-counter" id="unreadLeadBadge">3</span>
+        </a>
+
+        <!-- WhatsApp Quick Action -->
+        <a href="https://wa.me/2347042297094?text=Hello%20TP%20Global%20Services,%20I%20would%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-header" title="Chat on WhatsApp">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          <span>Chat</span>
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="menu-toggle-btn" id="mobileMenuBtn" aria-label="Toggle Mobile Navigation">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Nav (Sleek Full-Screen Glass Slide-Over) -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-header">
+        <div class="brand-logo">
+          <div class="logo-mark">TP</div>
+          <span class="brand-name">TP GLOBAL<span class="dot-accent">.</span></span>
+        </div>
+        <button class="drawer-close-btn" id="mobileDrawerCloseBtn" aria-label="Close Mobile Menu">&times;</button>
+      </div>
+
+      <div class="mobile-drawer-body">
+        <ul class="mobile-nav-list">
+          <li>
+            <a href="#home" class="mobile-nav-link" onclick="navigateTo('home')">
+              <span>Home Overview</span>
+              <span class="m-arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#stitches" class="mobile-nav-link" onclick="navigateTo('stitches')">
+              <span>TP Stitches Fashion</span>
+              <span class="m-badge yellow">Catalogue</span>
+            </a>
+          </li>
+          <li>
+            <a href="#travels" class="mobile-nav-link" onclick="navigateTo('travels')">
+              <span>Travels &amp; Cape Verde</span>
+              <span class="m-arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#events" class="mobile-nav-link" onclick="navigateTo('events')">
+              <span>TP Event Planner</span>
+              <span class="m-arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#beauty" class="mobile-nav-link" onclick="navigateTo('beauty')">
+              <span>Beauty Studio &amp; Spa</span>
+              <span class="m-arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#about" class="mobile-nav-link" onclick="navigateTo('about')">
+              <span>About Founder TP</span>
+              <span class="m-arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#contact" class="mobile-nav-link" onclick="navigateTo('contact')">
+              <span>Locations &amp; Direct</span>
+              <span class="m-arrow">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="#admin" class="mobile-nav-link admin-highlight" onclick="navigateTo('admin')">
+              <span>Admin Lead Inbox</span>
+              <span class="lead-counter" id="unreadLeadBadgeMob">3</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- Mobile Quick Hubs Card -->
+        <div class="mobile-hubs-card">
+          <div class="m-hub-item">
+            <span class="hub-pill">🇳🇬 Nigeria Flagship</span>
+            <p>Eleganza Mall, VGC, Lekki, Lagos</p>
+            <div class="m-hub-buttons">
+              <a href="tel:+2347042297094" class="m-hub-btn">📞 Call</a>
+              <a href="https://wa.me/2347042297094" target="_blank" rel="noopener noreferrer" class="m-hub-btn wa">💬 WhatsApp</a>
+            </div>
+          </div>
+          <div class="m-hub-item">
+            <span class="hub-pill">🇨🇻 Cape Verde Desk</span>
+            <p>Praça Center Palmarejo, Cape Verde</p>
+            <div class="m-hub-buttons">
+              <a href="tel:+2389145325" class="m-hub-btn">📞 Call</a>
+              <a href="https://wa.me/2389145325" target="_blank" rel="noopener noreferrer" class="m-hub-btn wa">💬 WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mobile-drawer-footer">
+        <div class="curr-select-mob">
+          <span class="curr-label">Currency:</span>
+          <div class="currency-segmented">
+            <button class="curr-btn active" data-currency="NGN">₦ NGN</button>
+            <button class="curr-btn" data-currency="GBP">£ GBP</button>
+          </div>
+        </div>
+        <a href="https://wa.me/2347042297094?text=Hello%20TP%20Global%20Services,%20I%20would%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full-width">
+          Chat Directly on WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================
+       PAGE VIEWS CONTAINER (DYNAMIC SINGLE PAGE APPLICATION)
+       ======================================================== -->
+  <main id="appContent">
+
+    <!-- VIEW 1: HOME PAGE -->
+    <section id="view-home" class="page-view active">
+      <!-- Luxury Hero Section -->
+      <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container hero-container">
+          <div class="hero-content">
+            <span class="eyebrow-tag">
+              <span class="pulse-dot"></span>
+              A Unified Digital Platform
+            </span>
+            <h1 class="hero-title">
+              One Brand.<br>
+              <span class="italic-serif">Distinctive Experiences.</span>
+            </h1>
+            <p class="hero-subtitle">
+              TP Global Services brings together bespoke African luxury fashion, international travel assistance, memorable event coordination, and premier beauty artistry across Nigeria, Cape Verde, and beyond.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#stitches" class="btn btn-primary" onclick="navigateTo('stitches')">
+                Explore Fashion Catalogue
+              </a>
+              <a href="#contact" class="btn btn-outline" onclick="navigateTo('contact')">
+                Connect With Our Team
+              </a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat-item">
+                <span class="stat-number">4</span>
+                <span class="stat-label">Bespoke Divisions</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <span class="stat-number">2</span>
+                <span class="stat-label">Country Hubs (NG &amp; CV)</span>
+              </div>
+              <div class="stat-divider"></div>
+              <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Tailored Excellence</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-card-stack">
+              <div class="hero-card hero-card-main">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="TP Global Services Founder &amp; African Luxury Representation" class="hero-img">
+                <div class="hero-card-caption">
+                  <span class="caption-tag">Founder's Vision</span>
+                  <h4>Curated by TP</h4>
+                  <p>Elevating African excellence across four lifestyle pillars.</p>
+                </div>
+              </div>
+              <div class="hero-badge-floating">
+                <span class="pulse-dot"></span>
+                <div class="badge-text">
+                  <strong>Luxury Handcrafted</strong>
+                  <span>Nigeria • Cape Verde</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Four Divisions Overview Grid -->
+      <section class="section-divisions bg-cream">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="section-subtitle">Our Four Umbrella Divisions</span>
+            <h2 class="section-title">One House, Four Distinct Worlds</h2>
+            <div class="gold-accent-line"></div>
+            <p class="section-description">
+              Each division operates with dedicated mastery, ensuring your wardrobe, journeys, celebrations, and personal wellness receive extraordinary care.
+            </p>
+          </div>
+
+          <div class="divisions-grid">
+            <!-- Division 1: Stitches -->
+            <article class="division-card card-stitches">
+              <div class="division-img-wrap">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="TP Stitches Luxury African Wear" class="division-img">
+                <span class="division-pill">Flagship Division</span>
+              </div>
+              <div class="division-body">
+                <div class="division-icon-row">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 2.23l.58 3.47a1 1 0 00.99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 002-2V10h2.15a1 1 0 00.99-.84l.58-3.47a2 2 0 00-1.34-2.23z"></path></svg>
+                  <span class="division-code">Division 01</span>
+                </div>
+                <h3 class="division-title">TP Stitches</h3>
+                <p class="division-tagline">“African style, tailored to make an impression.”</p>
+                <p class="division-desc">
+                  Men’s and women’s luxury native attire, agbada, kaftans, dashiki, safari suits, Italian linen &amp; cotton-silk sets, and bespoke accessories.
+                </p>
+                <div class="division-footer">
+                  <span class="division-meta">NGN &amp; GBP Pricing • Curated Catalogue</span>
+                  <a href="#stitches" class="link-arrow" onclick="navigateTo('stitches')">
+                    Explore Catalogue
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Division 2: Travels -->
+            <article class="division-card card-travels">
+              <div class="division-img-wrap">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="TP Global Travels &amp; Tours Cape Verde" class="division-img">
+                <span class="division-pill">Travel &amp; Tours</span>
+              </div>
+              <div class="division-body">
+                <div class="division-icon-row">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"></path></svg>
+                  <span class="division-code">Division 02</span>
+                </div>
+                <h3 class="division-title">TP Global Travels &amp; Tours</h3>
+                <p class="division-tagline">“Plan your next journey with support you can reach.”</p>
+                <p class="division-desc">
+                  Flight booking assistance, hotel reservations, airport pickups/drop-offs, and dedicated Cape Verde document &amp; paperwork assistance.
+                </p>
+                <div class="division-footer">
+                  <span class="division-meta">Lagos &amp; Cape Verde Hubs</span>
+                  <a href="#travels" class="link-arrow" onclick="navigateTo('travels')">
+                    Request Travel Quote
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Division 3: Events -->
+            <article class="division-card card-events">
+              <div class="division-img-wrap">
+                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="TP Global Event Planner" class="division-img">
+                <span class="division-pill">Event Design</span>
+              </div>
+              <div class="division-body">
+                <div class="division-icon-row">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  <span class="division-code">Division 03</span>
+                </div>
+                <h3 class="division-title">TP Global Event Planner</h3>
+                <p class="division-tagline">“Thoughtful experiences, beautifully coordinated.”</p>
+                <p class="division-desc">
+                  Full-scale event production, luxury venue coordination, gourmet catering, professional DJ &amp; Master of Ceremonies (MC) management.
+                </p>
+                <div class="division-footer">
+                  <span class="division-meta">Weddings, Galas &amp; Milestone Events</span>
+                  <a href="#events" class="link-arrow" onclick="navigateTo('events')">
+                    Submit Event Brief
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Division 4: Beauty -->
+            <article class="division-card card-beauty">
+              <div class="division-img-wrap">
+                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80" alt="TP Global Beauty Studio" class="division-img">
+                <span class="division-pill">Studio &amp; Spa</span>
+              </div>
+              <div class="division-body">
+                <div class="division-icon-row">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                  <span class="division-code">Division 04</span>
+                </div>
+                <h3 class="division-title">TP Global Beauty Studio</h3>
+                <p class="division-tagline">“Make time for your best look.”</p>
+                <p class="division-desc">
+                  Certified nail artistry, bespoke lash technician services, restorative body massage, glamorous event makeup, luxury pedicures, and manicures.
+                </p>
+                <div class="division-footer">
+                  <span class="division-meta">Professional Studio Treatments</span>
+                  <a href="#beauty" class="link-arrow" onclick="navigateTo('beauty')">
+                    Request Appointment
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Fashion Spotlight (Ambassadors & Lookbook preview) -->
+      <section class="section-home-fashion">
+        <div class="container">
+          <div class="fashion-spotlight-box">
+            <div class="spotlight-left">
+              <span class="spotlight-badge">Brand Ambassadors &amp; Fashion Icons</span>
+              <h2 class="spotlight-title">Handcrafted Prestige for Men &amp; Women</h2>
+              <p class="spotlight-text">
+                Under TP Stitches, our signature cuts are championed by our two distinguished male brand ambassadors alongside our curated women’s ready-to-wear silhouettes. Browse native luxury without the hassle of forwarded photos.
+              </p>
+              <div class="spotlight-features">
+                <div class="s-feature">
+                  <strong>Italian Silk &amp; Linens</strong>
+                  <span>Breathable, durable, regal finishes</span>
+                </div>
+                <div class="s-feature">
+                  <strong>Aso-Oke &amp; Agbada Masters</strong>
+                  <span>Intricate embroidery &amp; custom sizing</span>
+                </div>
+                <div class="s-feature">
+                  <strong>Global Shipping</strong>
+                  <span>Direct delivery to Nigeria, UK, US &amp; worldwide</span>
+                </div>
+              </div>
+              <div class="spotlight-cta">
+                <a href="#stitches" class="btn btn-gold" onclick="navigateTo('stitches')">View Full Stitches Lookbook</a>
+                <button class="btn btn-text" onclick="quickFilterFashion('Men')">Shop Men's Line</button>
+                <button class="btn btn-text" onclick="quickFilterFashion('Women')">Shop Women's Line</button>
+              </div>
+            </div>
+            <div class="spotlight-right">
+              <!-- Grid of Ambassador Visuals + Female Representation -->
+              <div class="ambassador-preview-grid">
+                <div class="ambassador-card amb-1">
+                  <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80" alt="TP Stitches Male Brand Ambassador 1 in Luxury Agbada" class="amb-img">
+                  <div class="amb-label">
+                    <span class="amb-tag">Male Ambassador</span>
+                    <h5>Regal Agbada Line</h5>
+                  </div>
+                </div>
+                <div class="ambassador-card amb-2">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80" alt="TP Stitches Male Brand Ambassador 2 in Italian Linen Set" class="amb-img">
+                  <div class="amb-label">
+                    <span class="amb-tag">Male Ambassador</span>
+                    <h5>Italian Linen &amp; Kaftan</h5>
+                  </div>
+                </div>
+                <div class="ambassador-card amb-3">
+                  <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=600&q=80" alt="TP Stitches Women's Luxury Ready-to-Wear Line" class="amb-img">
+                  <div class="amb-label">
+                    <span class="amb-tag">Women's Collection</span>
+                    <h5>Luxury Ready-to-Wear</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dual Location / Global Presence Strip -->
+      <section class="section-presence bg-sand">
+        <div class="container">
+          <div class="presence-wrap">
+            <div class="presence-header">
+              <span class="section-subtitle">Verified International Hubs</span>
+              <h3>Serving Nigeria, Cape Verde &amp; International Diaspora</h3>
+              <p>Direct offices in Lekki, Lagos and Palmarejo, Cape Verde. Experience unified coordination tailored for discerning clientele.</p>
+            </div>
+            <div class="presence-cards">
+              <div class="p-card">
+                <div class="p-flag">🇳🇬</div>
+                <h4>Nigeria Flagship</h4>
+                <p class="p-address">Block E11, Eleganza Shopping Mall Complex, VGC Bus Stop, Lekki, Lagos, Nigeria</p>
+                <div class="p-actions">
+                  <a href="tel:+2347042297094" class="p-link">📞 +234 704 229 7094</a>
+                  <a href="https://wa.me/2347042297094?text=Hello%20TP%20Global%20Nigeria,%20I%20have%20an%20enquiry." target="_blank" rel="noopener noreferrer" class="p-link-wa">WhatsApp Nigeria</a>
+                </div>
+              </div>
+              <div class="p-card">
+                <div class="p-flag">🇨🇻</div>
+                <h4>Cape Verde Center</h4>
+                <p class="p-address">Praça Center Palmarejo, Cape Verde (Travels &amp; Diaspora Assistance)</p>
+                <div class="p-actions">
+                  <a href="tel:+2389145325" class="p-link">📞 +238 914 5325</a>
+                  <a href="https://wa.me/2389145325?text=Hello%20TP%20Global%20Cape%20Verde,%20I%20have%20an%20enquiry." target="_blank" rel="noopener noreferrer" class="p-link-wa">WhatsApp Cape Verde</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- VIEW 2: TP STITCHES (FASHION DIVISION) -->
+    <section id="view-stitches" class="page-view">
+      <!-- Stitches Hero with Two Ambassadors + Women's Model -->
+      <section class="division-hero stitches-hero">
+        <div class="container">
+          <div class="div-hero-badge">TP Global Services • Division 01</div>
+          <h1 class="div-hero-title">TP Stitches Lookbook &amp; Catalogue</h1>
+          <p class="div-hero-sub">
+            African luxury fashion tailored to make an impression. Featuring our two distinguished male brand ambassadors and our signature women’s ready-to-wear designs.
+          </p>
+
+          <!-- Ambassador Showcase Strip -->
+          <div class="ambassador-hero-strip">
+            <div class="amb-strip-card">
+              <div class="amb-strip-img-box">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80" alt="Male Brand Ambassador - Native Agbada Series" class="amb-strip-img">
+              </div>
+              <div class="amb-strip-info">
+                <span class="amb-role">Brand Ambassador</span>
+                <h4>The Agbada &amp; Aso-Oke Sovereign</h4>
+                <p>Curated by TP for ceremonial royalty.</p>
+              </div>
+            </div>
+            <div class="amb-strip-card">
+              <div class="amb-strip-img-box">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80" alt="Male Brand Ambassador - Italian Silk & Linen" class="amb-strip-img">
+              </div>
+              <div class="amb-strip-info">
+                <span class="amb-role">Brand Ambassador</span>
+                <h4>The Italian Linen Executive</h4>
+                <p>Sharp contemporary luxury ready-to-wear.</p>
+              </div>
+            </div>
+            <div class="amb-strip-card">
+              <div class="amb-strip-img-box">
+                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=600&q=80" alt="Women's Signature Collection" class="amb-strip-img">
+              </div>
+              <div class="amb-strip-info">
+                <span class="amb-role">Women’s Couture</span>
+                <h4>The Luxury Co-Ord &amp; Kaftan</h4>
+                <p>Fluid elegance for modern women of stature.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Catalogue Filter & Product Grid -->
+      <section class="section-catalogue">
+        <div class="container">
+          <!-- Filter Controls -->
+          <div class="catalogue-toolbar">
+            <div class="filter-group-gender">
+              <button class="filter-btn active" data-gender="All" onclick="setGenderFilter('All')">All Garments</button>
+              <button class="filter-btn" data-gender="Men" onclick="setGenderFilter('Men')">Men's Native &amp; RTW</button>
+              <button class="filter-btn" data-gender="Women" onclick="setGenderFilter('Women')">Women's Collection</button>
+              <button class="filter-btn" data-gender="Accessories" onclick="setGenderFilter('Accessories')">Accessories &amp; Caps</button>
+            </div>
+
+            <div class="filter-secondary-row">
+              <div class="select-wrapper">
+                <label for="categoryFilter" class="sr-only">Category</label>
+                <select id="categoryFilter" class="custom-select" onchange="applyFilters()">
+                  <option value="All">All Categories</option>
+                  <option value="Ready-to-Wear">Luxury Ready-to-Wear</option>
+                  <option value="Agbada">Agbada &amp; Ceremonial</option>
+                  <option value="Kaftans">Kaftans &amp; Dashiki</option>
+                  <option value="Safari">Safari Suits &amp; Casual Sets</option>
+                  <option value="Accessories">Caps &amp; Beads</option>
+                </select>
+              </div>
+
+              <div class="select-wrapper">
+                <label for="fabricFilter" class="sr-only">Fabric</label>
+                <select id="fabricFilter" class="custom-select" onchange="applyFilters()">
+                  <option value="All">All Fabric Types</option>
+                  <option value="Italian Cotton & Silk">Italian Cotton &amp; Silk</option>
+                  <option value="Italian Linen">Italian Linen</option>
+                  <option value="African Print">African Print</option>
+                  <option value="Aso-Oke">Aso-Oke Mix</option>
+                </select>
+              </div>
+
+              <div class="search-wrapper">
+                <input type="text" id="catalogueSearch" placeholder="Search by style, fabric..." class="search-input" oninput="applyFilters()">
+                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              </div>
+
+              <div class="currency-toggle-inline">
+                <span class="curr-txt">Display Price:</span>
+                <button class="curr-chip active" id="chip-NGN" onclick="switchCurrency('NGN')">₦ NGN</button>
+                <button class="curr-chip" id="chip-GBP" onclick="switchCurrency('GBP')">£ GBP</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Grid -->
+          <div class="product-grid" id="productGrid">
+            <!-- Dynamically populated via app.js -->
+          </div>
+
+          <!-- Empty State -->
+          <div class="empty-state hidden" id="catalogueEmpty">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path d="M16 16s-1.5-2-4-2-4 2-4 2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+            <h3>No styles match your filter</h3>
+            <p>Try resetting the category or fabric filters to view our full collection.</p>
+            <button class="btn btn-outline" onclick="resetCatalogueFilters()">Reset All Filters</button>
+          </div>
+
+          <!-- Custom Tailoring / Bespoke Order Notice -->
+          <div class="bespoke-banner">
+            <div class="bespoke-content">
+              <span class="bespoke-tag">Made-to-Measure &amp; Custom Orders</span>
+              <h3>Need a Custom Bespoke Cut or Group Aso-Ebi?</h3>
+              <p>
+                TP Stitches provides tailored made-to-measure services with personalized fabric selection, precision fittings, and international delivery.
+              </p>
+            </div>
+            <a href="https://wa.me/2347042297094?text=Hello%20TP%20Stitches,%20I%20would%20like%20to%20enquire%20about%20a%20Custom%20Made-to-Measure%20or%20Aso-Ebi%20order." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              Enquire for Custom Fitting
+            </a>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- VIEW 3: TP GLOBAL TRAVELS & TOURS -->
+    <section id="view-travels" class="page-view">
+      <section class="division-hero travels-hero">
+        <div class="container">
+          <div class="div-hero-badge">TP Global Services • Division 02</div>
+          <h1 class="div-hero-title">TP Global Travels &amp; Tours</h1>
+          <p class="div-hero-sub">
+            “Plan your next journey with support you can reach.” Reliable international flight bookings, curated hotel stays, seamless airport pickups, and dedicated Cape Verde document assistance.
+          </p>
+        </div>
+      </section>
+
+      <section class="section-travel-services">
+        <div class="container">
+          <!-- 4 Core Travel Services Grid -->
+          <div class="services-row">
+            <div class="service-box">
+              <div class="s-icon">✈️</div>
+              <h3>Flight Ticket Assistance</h3>
+              <p>Personalized routing, fare discovery, and reservation assistance for domestic Nigerian routes and international intercontinental travel.</p>
+              <span class="service-chip">Reservation Assistance</span>
+            </div>
+
+            <div class="service-box">
+              <div class="s-icon">🏨</div>
+              <h3>Hotel &amp; Resort Reservations</h3>
+              <p>Handpicked accommodations in top destinations across Lagos, Praia, Sal, the UK, Europe, and leisure resort islands.</p>
+              <span class="service-chip">Vetted Stays</span>
+            </div>
+
+            <div class="service-box featured-box">
+              <div class="s-icon">🇨🇻</div>
+              <h3>Cape Verde Document Support</h3>
+              <p>Comprehensive paperwork assistance, travel preparation, and local logistics for travellers visiting or relocating to Cape Verde.</p>
+              <span class="service-chip gold">Praça Center Palmarejo Hub</span>
+            </div>
+
+            <div class="service-box">
+              <div class="s-icon">🚘</div>
+              <h3>Airport Transfers &amp; Chauffeur</h3>
+              <p>Punctual VIP pickup and drop-off services at Murtala Muhammed International (Lagos) and Nelson Mandela International (Praia).</p>
+              <span class="service-chip">Seamless Transfers</span>
+            </div>
+          </div>
+
+          <!-- Cape Verde Spotlight Feature -->
+          <div class="cape-verde-feature">
+            <div class="cv-text">
+              <span class="cv-tag">Destination Feature</span>
+              <h2>Your Gateway to Cape Verde (Cabo Verde)</h2>
+              <p>
+                With our on-the-ground presence at Praça Center Palmarejo, TP Global Travels &amp; Tours bridges West Africa and the Atlantic islands. Whether you are traveling for business, holiday relaxation, or residency paperwork guidance, our local team ensures you are guided every step.
+              </p>
+              <ul class="cv-list">
+                <li>✓ Direct assistance with entry documentation and paperwork guidance</li>
+                <li>✓ Island-to-island transfer advice and curated lodging</li>
+                <li>✓ Local Cape Verde phone support: <strong>+238 914 5325</strong></li>
+                <li>✓ Personalised itinerary planning without generic call-center delays</li>
+              </ul>
+            </div>
+            <div class="cv-image-box">
+              <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Cape Verde Coastal Waters and Island Beauty" class="cv-img">
+              <div class="cv-card-caption">
+                <strong>Praia &amp; Palmarejo Hub</strong>
+                <span>Direct on-site assistance in Cape Verde</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Travel Quote Request Form -->
+          <div class="form-card travel-form-card" id="travelFormContainer">
+            <div class="form-header">
+              <span class="form-tag">Structured Lead Intake</span>
+              <h2>Request a Travel Quotation</h2>
+              <p>Submit your travel requirements below. Our travel coordinators will review itineraries and respond promptly with tailored options.</p>
+            </div>
+
+            <form id="travelQuoteForm" class="interactive-form" onsubmit="handleTravelSubmit(event)">
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="t_name">Full Name <span class="req">*</span></label>
+                  <input type="text" id="t_name" name="fullName" required placeholder="e.g. Adeola Johnson">
+                </div>
+
+                <div class="form-field">
+                  <label for="t_phone">Phone / WhatsApp Number <span class="req">*</span></label>
+                  <input type="tel" id="t_phone" name="phone" required placeholder="e.g. +234 801 234 5678">
+                </div>
+
+                <div class="form-field">
+                  <label for="t_email">Email Address <span class="req">*</span></label>
+                  <input type="email" id="t_email" name="email" required placeholder="e.g. adeola@example.com">
+                </div>
+
+                <div class="form-field">
+                  <label for="t_service">Service Required <span class="req">*</span></label>
+                  <select id="t_service" name="service" required>
+                    <option value="Flight Ticket Assistance">Flight Ticket Assistance</option>
+                    <option value="Hotel Reservation">Hotel Reservation</option>
+                    <option value="Cape Verde Document Assistance">Cape Verde Document Assistance</option>
+                    <option value="Airport Pickup / Drop-off">Airport Pickup / Drop-off</option>
+                    <option value="Complete Vacation Package">Complete Vacation Package</option>
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label for="t_departure">Departure City</label>
+                  <input type="text" id="t_departure" name="departure" placeholder="e.g. Lagos, Abuja, London">
+                </div>
+
+                <div class="form-field">
+                  <label for="t_destination">Destination City</label>
+                  <input type="text" id="t_destination" name="destination" placeholder="e.g. Praia (Cape Verde), London, Paris">
+                </div>
+
+                <div class="form-field">
+                  <label for="t_dates">Travel Dates / Estimated Window</label>
+                  <input type="text" id="t_dates" name="dates" placeholder="e.g. Nov 15 - Nov 25 (Flexible)">
+                </div>
+
+                <div class="form-field">
+                  <label for="t_passengers">Number of Travellers</label>
+                  <input type="number" id="t_passengers" name="passengers" min="1" value="1">
+                </div>
+              </div>
+
+              <div class="form-field full-width">
+                <label for="t_message">Special Requests or Specific Route Details</label>
+                <textarea id="t_message" name="message" rows="3" placeholder="Tell us about airline preference, baggage needs, or Cape Verde document support required..."></textarea>
+              </div>
+
+              <div class="form-consent">
+                <label class="checkbox-label">
+                  <input type="checkbox" required checked>
+                  <span>I authorize TP Global Travels &amp; Tours to contact me regarding this travel quotation.</span>
+                </label>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-submit">
+                  <span>Send Travel Request</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+                <span class="form-note">Your enquiry is tagged and securely routed to our travel desk.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- VIEW 4: TP GLOBAL EVENT PLANNER -->
+    <section id="view-events" class="page-view">
+      <section class="division-hero events-hero">
+        <div class="container">
+          <div class="div-hero-badge">TP Global Services • Division 03</div>
+          <h1 class="div-hero-title">TP Global Event Planner</h1>
+          <p class="div-hero-sub">
+            “Thoughtful experiences, beautifully coordinated.” Delivering seamless venues, exquisite catering, engaging DJs, and charismatic Masters of Ceremony for celebrations that resonate.
+          </p>
+        </div>
+      </section>
+
+      <section class="section-event-details">
+        <div class="container">
+          <div class="event-pillars">
+            <div class="pillar-card">
+              <div class="pillar-media">
+                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80" alt="Luxury Event Venue Coordination" class="pillar-img">
+              </div>
+              <div class="pillar-body">
+                <h3>Venue Coordination</h3>
+                <p>Curating prestigious halls, outdoor garden sanctuaries, waterfront spaces, and executive ballrooms tailored to your event aesthetic and seating capacity.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-media">
+                <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=600&q=80" alt="Gourmet Food & Drinks Catering" class="pillar-img">
+              </div>
+              <div class="pillar-body">
+                <h3>Food &amp; Drinks Provision</h3>
+                <p>Authentic Nigerian native cuisine, continental banquets, gourmet small chops, signature mocktail/cocktail bars, and premium beverage hospitality.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-media">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600&q=80" alt="DJ & Sound Management" class="pillar-img">
+              </div>
+              <div class="pillar-body">
+                <h3>DJ Services &amp; Sound</h3>
+                <p>State-of-the-art acoustic setups, ambient mood lighting, and top-tier DJs curating Afrobeats, Amapiano, highlife, and global anthems.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-media">
+                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80" alt="MC Master of Ceremonies Coordination" class="pillar-img">
+              </div>
+              <div class="pillar-body">
+                <h3>MC Coordination</h3>
+                <p>Experienced, charismatic Masters of Ceremonies who keep your guests energized, respect ceremonial protocols, and ensure a memorable flow.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Event Brief Intake Form -->
+          <div class="form-card event-form-card" id="eventFormContainer">
+            <div class="form-header">
+              <span class="form-tag">Event Planning Brief</span>
+              <h2>Submit Your Event Brief</h2>
+              <p>Share your vision and requirements. We will prepare an itemized coordination proposal matching your guest count and preferences.</p>
+            </div>
+
+            <form id="eventBriefForm" class="interactive-form" onsubmit="handleEventSubmit(event)">
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="e_name">Your Name / Host <span class="req">*</span></label>
+                  <input type="text" id="e_name" name="hostName" required placeholder="e.g. Chief &amp; Mrs. Williams">
+                </div>
+
+                <div class="form-field">
+                  <label for="e_phone">Phone / WhatsApp Number <span class="req">*</span></label>
+                  <input type="tel" id="e_phone" name="phone" required placeholder="e.g. +234 704 229 7094">
+                </div>
+
+                <div class="form-field">
+                  <label for="e_email">Email Address <span class="req">*</span></label>
+                  <input type="email" id="e_email" name="email" required placeholder="e.g. contact@domain.com">
+                </div>
+
+                <div class="form-field">
+                  <label for="e_type">Type of Event <span class="req">*</span></label>
+                  <select id="e_type" name="eventType" required>
+                    <option value="Wedding Celebration">Wedding Celebration</option>
+                    <option value="Milestone Birthday">Milestone Birthday</option>
+                    <option value="Corporate Gala / Launch">Corporate Gala / Launch</option>
+                    <option value="Anniversary / Private Dinner">Anniversary / Private Dinner</option>
+                    <option value="Other Bespoke Event">Other Bespoke Event</option>
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label for="e_date">Proposed Event Date</label>
+                  <input type="date" id="e_date" name="eventDate">
+                </div>
+
+                <div class="form-field">
+                  <label for="e_location">Preferred City / Location</label>
+                  <input type="text" id="e_location" name="location" placeholder="e.g. Lekki, Lagos or Cape Verde">
+                </div>
+
+                <div class="form-field full-width">
+                  <label>Estimated Guest Count: <span id="guestCountDisplay" class="counter-display">150 Guests</span></label>
+                  <input type="range" id="e_guests" name="guestCount" min="20" max="1000" step="10" value="150" class="range-slider" oninput="updateGuestDisplay(this.value)">
+                </div>
+              </div>
+
+              <!-- Services Checkboxes -->
+              <div class="form-field full-width">
+                <label class="group-label">Services You Require From TP Global Event Planner:</label>
+                <div class="checkbox-grid">
+                  <label class="check-pill">
+                    <input type="checkbox" name="services" value="Venue Coordination" checked>
+                    <span>Venue Coordination</span>
+                  </label>
+                  <label class="check-pill">
+                    <input type="checkbox" name="services" value="Food & Drinks" checked>
+                    <span>Food &amp; Drinks Catering</span>
+                  </label>
+                  <label class="check-pill">
+                    <input type="checkbox" name="services" value="DJ & Sound" checked>
+                    <span>DJ &amp; Professional Sound</span>
+                  </label>
+                  <label class="check-pill">
+                    <input type="checkbox" name="services" value="MC Services" checked>
+                    <span>MC Coordination</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-field full-width">
+                <label for="e_budget">Estimated Overall Budget (Optional)</label>
+                <select id="e_budget" name="budgetRange">
+                  <option value="Standard Package (₦2.5M - ₦5M / £1.5k - £3k)">Standard Package (₦2.5M - ₦5M / £1.5k - £3k)</option>
+                  <option value="Executive Package (₦5M - ₦15M / £3k - £9k)">Executive Package (₦5M - ₦15M / £3k - £9k)</option>
+                  <option value="Luxury Bespoke (₦15M+ / £10k+)">Luxury Bespoke (₦15M+ / £10k+)</option>
+                  <option value="Let's Discuss">To Be Determined / Let's Discuss</option>
+                </select>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-submit">
+                  <span>Submit Event Brief</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+                <span class="form-note">Leads are recorded in the owner's dashboard with status tracking.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- VIEW 5: TP GLOBAL BEAUTY STUDIO -->
+    <section id="view-beauty" class="page-view">
+      <section class="division-hero beauty-hero">
+        <div class="container">
+          <div class="div-hero-badge">TP Global Services • Division 04</div>
+          <h1 class="div-hero-title">TP Global Beauty Studio</h1>
+          <p class="div-hero-sub">
+            “Make time for your best look.” Certified nail technician treatments, customized lash technician applications, rejuvenating body massage, flawless makeup, and luxury pedicure &amp; manicure services.
+          </p>
+        </div>
+      </section>
+
+      <section class="section-beauty-menu">
+        <div class="container">
+          <div class="menu-intro text-center">
+            <span class="section-subtitle">Certified Specialist Treatments</span>
+            <h2>Our Signature Beauty Menu</h2>
+            <div class="gold-accent-line"></div>
+            <p>Every session is performed by dedicated technicians dedicated to hygiene, precision, and beauty longevity.</p>
+          </div>
+
+          <!-- Service Menu Grid -->
+          <div class="beauty-menu-grid">
+            <div class="menu-item-card">
+              <div class="m-img-wrap">
+                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=600&q=80" alt="Luxury Nail Artistry" class="m-img">
+              </div>
+              <div class="m-body">
+                <div class="m-title-row">
+                  <h4>Nail Technician Services</h4>
+                  <span class="m-tag">Nails</span>
+                </div>
+                <p>Sculpted acrylics, BIAB builder gel, Russian manicures, gel polish, hand-painted luxury nail art, and nail strengthening treatments.</p>
+                <button class="btn btn-sm btn-outline" onclick="selectBeautyService('Nail Technician Services')">Request This Service</button>
+              </div>
+            </div>
+
+            <div class="menu-item-card">
+              <div class="m-img-wrap">
+                <img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?auto=format&fit=crop&w=600&q=80" alt="Lash Technician Application" class="m-img">
+              </div>
+              <div class="m-body">
+                <div class="m-title-row">
+                  <h4>Lash Technician Artistry</h4>
+                  <span class="m-tag">Lashes</span>
+                </div>
+                <p>Classic individual sets, hybrid volume, Russian volume extensions, and lash lift &amp; tint customized to your eye profile.</p>
+                <button class="btn btn-sm btn-outline" onclick="selectBeautyService('Lash Technician Artistry')">Request This Service</button>
+              </div>
+            </div>
+
+            <div class="menu-item-card">
+              <div class="m-img-wrap">
+                <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=80" alt="Relaxing Body Massage" class="m-img">
+              </div>
+              <div class="m-body">
+                <div class="m-title-row">
+                  <h4>Body Massage &amp; Wellness</h4>
+                  <span class="m-tag">Spa &amp; Body</span>
+                </div>
+                <p>Swedish relaxation therapy, targeted deep tissue massage, hot stone soothing, and tension-relief aromatherapy sessions.</p>
+                <button class="btn btn-sm btn-outline" onclick="selectBeautyService('Body Massage & Wellness')">Request This Service</button>
+              </div>
+            </div>
+
+            <div class="menu-item-card">
+              <div class="m-img-wrap">
+                <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=600&q=80" alt="Professional Glam Makeup" class="m-img">
+              </div>
+              <div class="m-body">
+                <div class="m-title-row">
+                  <h4>Glamour &amp; Bridal Makeup</h4>
+                  <span class="m-tag">Artistry</span>
+                </div>
+                <p>Soft glam, high-definition bridal makeup, red carpet photoshoot styling, and natural daytime radiance that lasts all day.</p>
+                <button class="btn btn-sm btn-outline" onclick="selectBeautyService('Glamour & Bridal Makeup')">Request This Service</button>
+              </div>
+            </div>
+
+            <div class="menu-item-card">
+              <div class="m-img-wrap">
+                <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?auto=format&fit=crop&w=600&q=80" alt="Spa Pedicure" class="m-img">
+              </div>
+              <div class="m-body">
+                <div class="m-title-row">
+                  <h4>Luxury Spa Pedicure</h4>
+                  <span class="m-tag">Feet Care</span>
+                </div>
+                <p>Detoxifying foot soaks, exfoliating sugar scrubs, cuticle therapy, callus removal, and deep hydration massage.</p>
+                <button class="btn btn-sm btn-outline" onclick="selectBeautyService('Luxury Spa Pedicure')">Request This Service</button>
+              </div>
+            </div>
+
+            <div class="menu-item-card">
+              <div class="m-img-wrap">
+                <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&w=600&q=80" alt="Executive Manicure" class="m-img">
+              </div>
+              <div class="m-body">
+                <div class="m-title-row">
+                  <h4>Executive Manicure</h4>
+                  <span class="m-tag">Hand Care</span>
+                </div>
+                <p>Precision nail shaping, cuticle conditioning, nourishing paraffin wax, gentle hand massage, and long-wear protective topcoat.</p>
+                <button class="btn btn-sm btn-outline" onclick="selectBeautyService('Executive Manicure')">Request This Service</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Appointment Request Form -->
+          <div class="form-card beauty-form-card" id="beautyFormContainer">
+            <div class="form-header">
+              <span class="form-tag">Appointment Request</span>
+              <h2>Request a Studio Appointment</h2>
+              <p>
+                Please note: Submitting this form requests a booking slot. Our studio concierge will contact you on WhatsApp or phone to confirm exact availability and location details.
+              </p>
+            </div>
+
+            <form id="beautyApptForm" class="interactive-form" onsubmit="handleBeautySubmit(event)">
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="b_name">Client Full Name <span class="req">*</span></label>
+                  <input type="text" id="b_name" name="clientName" required placeholder="e.g. Chioma Eze">
+                </div>
+
+                <div class="form-field">
+                  <label for="b_phone">Phone / WhatsApp Number <span class="req">*</span></label>
+                  <input type="tel" id="b_phone" name="phone" required placeholder="e.g. +234 704 229 7094">
+                </div>
+
+                <div class="form-field">
+                  <label for="b_service">Select Desired Treatment <span class="req">*</span></label>
+                  <select id="b_service" name="service" required>
+                    <option value="Nail Technician Services">Nail Technician Services</option>
+                    <option value="Lash Technician Artistry">Lash Technician Artistry</option>
+                    <option value="Body Massage & Wellness">Body Massage &amp; Wellness</option>
+                    <option value="Glamour & Bridal Makeup">Glamour &amp; Bridal Makeup</option>
+                    <option value="Luxury Spa Pedicure">Luxury Spa Pedicure</option>
+                    <option value="Executive Manicure">Executive Manicure</option>
+                    <option value="Multiple Treatments Combo">Multiple Treatments Combo</option>
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label for="b_date">Preferred Date</label>
+                  <input type="date" id="b_date" name="preferredDate">
+                </div>
+
+                <div class="form-field">
+                  <label for="b_time">Preferred Time of Day</label>
+                  <select id="b_time" name="preferredTime">
+                    <option value="Morning (10:00 AM - 1:00 PM)">Morning (10:00 AM - 1:00 PM)</option>
+                    <option value="Afternoon (1:00 PM - 4:00 PM)">Afternoon (1:00 PM - 4:00 PM)</option>
+                    <option value="Evening (4:00 PM - 7:00 PM)">Evening (4:00 PM - 7:00 PM)</option>
+                    <option value="Flexible">Anytime / Flexible</option>
+                  </select>
+                </div>
+
+                <div class="form-field">
+                  <label for="b_contact_pref">Preferred Confirmation Method</label>
+                  <select id="b_contact_pref" name="contactPref">
+                    <option value="WhatsApp">WhatsApp (Fastest)</option>
+                    <option value="Phone Call">Phone Call</option>
+                    <option value="Email">Email</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field full-width">
+                <label for="b_notes">Specific Preferences or Inspiration</label>
+                <textarea id="b_notes" name="notes" rows="2" placeholder="e.g. Length preferences for nails, lash volume style, or special occasion date..."></textarea>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-submit">
+                  <span>Submit Appointment Request</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+                <span class="form-note">Guaranteed fast response directly to your WhatsApp.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- VIEW 6: ABOUT & FOUNDER TP -->
+    <section id="view-about" class="page-view">
+      <section class="division-hero about-hero">
+        <div class="container">
+          <div class="div-hero-badge">About TP Global Services</div>
+          <h1 class="div-hero-title">The Story &amp; Brand Philosophy</h1>
+          <p class="div-hero-sub">
+            Built on African excellence, international mobility, and bespoke luxury service across Nigeria and Cape Verde.
+          </p>
+        </div>
+      </section>
+
+      <section class="section-about-story">
+        <div class="container">
+          <div class="about-grid">
+            <div class="about-text-col">
+              <span class="section-subtitle">Founder &amp; Creative Director</span>
+              <h2 class="about-title">A Vision of Seamless Elegance</h2>
+              <div class="gold-accent-line"></div>
+              <p class="lead-p">
+                TP Global Services was founded with a singular ambition: to provide clients with one trusted, high-calibre partner for lifestyle, bespoke fashion, overseas journey coordination, celebrations, and personal pampering.
+              </p>
+              <p>
+                Our founder, known simply as <strong>TP</strong>, recognized that modern professionals and diaspora families were tired of fragmented service providers and endless forwarded pictures over messaging apps. TP created a unified standard:
+              </p>
+              <div class="story-points">
+                <div class="s-point">
+                  <div class="point-num">01</div>
+                  <div>
+                    <h4>Authentic African Craftsmanship</h4>
+                    <p>Celebrated fabrics including Italian cottons, luxury silks, rich linens, and handwoven Aso-Oke tailored to perfection.</p>
+                  </div>
+                </div>
+                <div class="s-point">
+                  <div class="point-num">02</div>
+                  <div>
+                    <h4>Transnational Footprint</h4>
+                    <p>Physical contact points and on-the-ground support in Lekki, Lagos (Nigeria) and Praça Center Palmarejo (Cape Verde).</p>
+                  </div>
+                </div>
+                <div class="s-point">
+                  <div class="point-num">03</div>
+                  <div>
+                    <h4>Bespoke Attention to Every Client</h4>
+                    <p>Direct communication, transparent pricing, and respectful, personalized care from initial enquiry to final delivery.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-card-col">
+              <div class="founder-card">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Executive Leadership - TP Global Services" class="founder-img">
+                <div class="founder-meta">
+                  <h3>TP</h3>
+                  <span class="founder-role">Founder &amp; Executive Director</span>
+                  <p class="founder-quote">
+                    “Our goal is simple: when you think of style, travels, unforgettable celebrations, and personal beauty, TP Global Services is the single name you trust without hesitation.”
+                  </p>
+                  <div class="founder-socials">
+                    <a href="https://instagram.com/tpwears_14" target="_blank" rel="noopener noreferrer">@tpwears_14 on Instagram</a>
+                    <a href="https://tiktok.com/@tp_stitches" target="_blank" rel="noopener noreferrer">@tp_stitches on TikTok</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- VIEW 7: CONTACT & LOCATIONS -->
+    <section id="view-contact" class="page-view">
+      <section class="division-hero contact-hero">
+        <div class="container">
+          <div class="div-hero-badge">Direct Communication</div>
+          <h1 class="div-hero-title">Contact &amp; Hub Locations</h1>
+          <p class="div-hero-sub">
+            Connect directly with our Nigerian or Cape Verde offices, or send an enquiry to our management desk.
+          </p>
+        </div>
+      </section>
+
+      <section class="section-contact-body">
+        <div class="container">
+          <div class="contact-dual-grid">
+            <!-- Nigeria Hub -->
+            <div class="hub-box">
+              <div class="hub-header">
+                <span class="hub-flag">🇳🇬</span>
+                <div>
+                  <h3>Nigeria Headquarters</h3>
+                  <span class="hub-city">Lekki, Lagos</span>
+                </div>
+              </div>
+              <p class="hub-address">
+                Block E11, Eleganza Shopping Mall Complex,<br>
+                VGC Bus Stop, Lekki, Lagos State, Nigeria
+              </p>
+              <div class="hub-links">
+                <a href="tel:+2347042297094" class="hub-link-item">
+                  <span class="h-icon">📞</span> +234 704 229 7094
+                </a>
+                <a href="https://wa.me/2347042297094" target="_blank" rel="noopener noreferrer" class="hub-link-item wa">
+                  <span class="h-icon">💬</span> Chat on WhatsApp (Nigeria)
+                </a>
+                <a href="mailto:tpwears14@gmail.com" class="hub-link-item">
+                  <span class="h-icon">✉️</span> tpwears14@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <!-- Cape Verde Hub -->
+            <div class="hub-box">
+              <div class="hub-header">
+                <span class="hub-flag">🇨🇻</span>
+                <div>
+                  <h3>Cape Verde Center</h3>
+                  <span class="hub-city">Praça Center Palmarejo</span>
+                </div>
+              </div>
+              <p class="hub-address">
+                Praça Center Palmarejo,<br>
+                Cape Verde (Travels &amp; Diaspora Desk)
+              </p>
+              <div class="hub-links">
+                <a href="tel:+2389145325" class="hub-link-item">
+                  <span class="h-icon">📞</span> +238 914 5325
+                </a>
+                <a href="https://wa.me/2389145325" target="_blank" rel="noopener noreferrer" class="hub-link-item wa">
+                  <span class="h-icon">💬</span> Chat on WhatsApp (Cape Verde)
+                </a>
+                <a href="mailto:tpwears14@gmail.com" class="hub-link-item">
+                  <span class="h-icon">✉️</span> tpwears14@gmail.com
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- General Enquiry Form -->
+          <div class="form-card general-contact-card">
+            <div class="form-header text-center">
+              <span class="form-tag">General Inquiries</span>
+              <h2>Send a Direct Message</h2>
+              <p>For cross-division corporate inquiries, collaborations, or general questions, submit your message below.</p>
+            </div>
+
+            <form id="generalContactForm" class="interactive-form" onsubmit="handleGeneralContact(event)">
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="c_name">Full Name <span class="req">*</span></label>
+                  <input type="text" id="c_name" name="name" required placeholder="e.g. Samuel Adeleke">
+                </div>
+                <div class="form-field">
+                  <label for="c_email">Email <span class="req">*</span></label>
+                  <input type="email" id="c_email" name="email" required placeholder="e.g. samuel@domain.com">
+                </div>
+                <div class="form-field">
+                  <label for="c_phone">Phone / WhatsApp <span class="req">*</span></label>
+                  <input type="tel" id="c_phone" name="phone" required placeholder="e.g. +234 800 000 0000">
+                </div>
+                <div class="form-field">
+                  <label for="c_division">Division of Interest</label>
+                  <select id="c_division" name="division">
+                    <option value="General Corporate">General Corporate / Umbrella</option>
+                    <option value="TP Stitches (Fashion)">TP Stitches (Fashion)</option>
+                    <option value="Travels & Tours">TP Global Travels &amp; Tours</option>
+                    <option value="Event Planner">TP Global Event Planner</option>
+                    <option value="Beauty Studio">TP Global Beauty Studio</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field full-width">
+                <label for="c_message">Message <span class="req">*</span></label>
+                <textarea id="c_message" name="message" rows="4" required placeholder="How can we assist you?"></textarea>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-submit">
+                  <span>Send Message</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+                <span class="form-note">Recorded in our executive lead inbox.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- VIEW 8: ADMIN & LEAD MANAGEMENT INBOX (PRD SECTION 13 & 14) -->
+    <section id="view-admin" class="page-view">
+      <section class="division-hero admin-hero">
+        <div class="container">
+          <div class="admin-hero-content">
+            <div>
+              <div class="div-hero-badge">Secure Management • Nile Africa Technologies &amp; TP</div>
+              <h1 class="div-hero-title">Executive Lead Management &amp; Analytics</h1>
+              <p class="div-hero-sub">
+                Live centralized lead inbox capturing inquiries across TP Stitches, Travels &amp; Tours, Event Planner, and Beauty Studio.
+              </p>
+            </div>
+            <div class="admin-quick-actions">
+              <button class="btn btn-sm btn-outline-white" onclick="exportLeadsToCSV()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Export Leads (CSV)
+              </button>
+              <button class="btn btn-sm btn-gold" onclick="seedSampleLead()">
+                + Simulate New Lead
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-admin-body">
+        <div class="container">
+          <!-- Metrics Cards Row -->
+          <div class="admin-kpi-grid">
+            <div class="kpi-card">
+              <span class="kpi-label">Total Leads Captured</span>
+              <h3 class="kpi-value" id="kpiTotalLeads">0</h3>
+              <span class="kpi-sub">Across all 4 divisions</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">New / Actionable</span>
+              <h3 class="kpi-value text-gold" id="kpiNewLeads">0</h3>
+              <span class="kpi-sub">Awaiting team contact</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">TP Stitches Leads</span>
+              <h3 class="kpi-value" id="kpiFashionLeads">0</h3>
+              <span class="kpi-sub">Product &amp; bespoke inquiries</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">Services Enquiries</span>
+              <h3 class="kpi-value" id="kpiServiceLeads">0</h3>
+              <span class="kpi-sub">Travel, Events &amp; Beauty</span>
+            </div>
+          </div>
+
+          <!-- Lead Management Table -->
+          <div class="admin-table-card">
+            <div class="admin-table-toolbar">
+              <div class="toolbar-left">
+                <h3>Customer Inquiries</h3>
+                <span class="badge-total" id="leadCountBadge">Showing all leads</span>
+              </div>
+              <div class="toolbar-right">
+                <label for="adminDivisionFilter" class="sr-only">Filter Division</label>
+                <select id="adminDivisionFilter" class="admin-select" onchange="renderAdminLeads()">
+                  <option value="All">All Divisions</option>
+                  <option value="TP Stitches">TP Stitches (Fashion)</option>
+                  <option value="Travels & Tours">Travels &amp; Tours</option>
+                  <option value="Event Planner">Event Planner</option>
+                  <option value="Beauty Studio">Beauty Studio</option>
+                  <option value="General Corporate">General Inquiries</option>
+                </select>
+
+                <label for="adminStatusFilter" class="sr-only">Filter Status</label>
+                <select id="adminStatusFilter" class="admin-select" onchange="renderAdminLeads()">
+                  <option value="All">All Statuses</option>
+                  <option value="New">New</option>
+                  <option value="Contacted">Contacted</option>
+                  <option value="Quoted">Quoted</option>
+                  <option value="Won">Won</option>
+                  <option value="Closed">Closed</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Leads Table -->
+            <div class="table-responsive">
+              <table class="leads-table">
+                <thead>
+                  <tr>
+                    <th>Lead ID / Date</th>
+                    <th>Division</th>
+                    <th>Customer Name</th>
+                    <th>Contact Info</th>
+                    <th>Service / Item</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="adminLeadsTableBody">
+                  <!-- Populated via app.js -->
+                </tbody>
+              </table>
+            </div>
+
+            <div class="admin-empty hidden" id="adminTableEmpty">
+              <p>No leads found matching current filter.</p>
+            </div>
+          </div>
+
+          <!-- Quick Operating Rules Note for Nile & TP -->
+          <div class="admin-guidance-box">
+            <h4>📌 Client &amp; Nile Operating Guidelines (PRD Reference)</h4>
+            <ul>
+              <li><strong>Lead Handoff:</strong> When a new enquiry arrives, the team reaches out via WhatsApp or phone within 2 hours.</li>
+              <li><strong>Currency Rule:</strong> Prices shown in NGN and GBP are manually maintained amounts set by TP, never automated FX.</li>
+              <li><strong>Beauty Guardrail:</strong> Appointments remain requests until studio capacity and time are verified by phone/WhatsApp.</li>
+              <li><strong>Travel Guardrail:</strong> Cape Verde paperwork is support &amp; guidance; do not claim government visa issuance guarantees.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       MODALS: PRODUCT QUICK VIEW & ENQUIRY
+       ======================================================== -->
+  <div class="modal-backdrop" id="productModal" onclick="closeProductModal(event)">
+    <div class="modal-dialog" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeProductModal()" aria-label="Close Modal">&times;</button>
+      <div class="modal-content-grid" id="modalProductContent">
+        <!-- Dynamically injected via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ========================================================
+       FOOTER (PRD SECTION 7 & 16)
+       ======================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-col brand-col">
+        <div class="footer-logo">
+          <span class="mono-text">TP</span>
+          <span class="brand-name">TP GLOBAL SERVICES</span>
+        </div>
+        <p class="footer-tagline">
+          “One brand. Distinctive experiences.”
+        </p>
+        <p class="footer-desc">
+          Bringing together African fashion, travel assistance, event experiences, and beauty services across Nigeria and Cape Verde.
+        </p>
+        <div class="footer-socials">
+          <a href="https://instagram.com/tpwears_14" target="_blank" rel="noopener noreferrer" class="social-icon" title="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <span>@tpwears_14</span>
+          </a>
+          <a href="https://tiktok.com/@tp_stitches" target="_blank" rel="noopener noreferrer" class="social-icon" title="TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 2.89 3.51 2.76 1.12-.04 2.19-.6 2.77-1.56.32-.51.46-1.12.45-1.73V.02z"/></svg>
+            <span>@tp_stitches</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Four Divisions</h4>
+        <ul class="footer-links">
+          <li><a href="#stitches" onclick="navigateTo('stitches')">TP Stitches (Fashion)</a></li>
+          <li><a href="#travels" onclick="navigateTo('travels')">Travels &amp; Tours</a></li>
+          <li><a href="#events" onclick="navigateTo('events')">Event Planner</a></li>
+          <li><a href="#beauty" onclick="navigateTo('beauty')">Beauty Studio</a></li>
+          <li><a href="#stitches" onclick="quickFilterFashion('Agbada')">Regal Agbada Line</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Locations &amp; Direct</h4>
+        <ul class="footer-links-info">
+          <li>
+            <strong>Nigeria:</strong> Block E11, Eleganza Shopping Mall Complex, VGC Bus Stop, Lekki, Lagos
+          </li>
+          <li>
+            <strong>Cape Verde:</strong> Praça Center Palmarejo
+          </li>
+          <li>
+            <strong>Email:</strong> <a href="mailto:tpwears14@gmail.com">tpwears14@gmail.com</a>
+          </li>
+          <li>
+            <strong>Nigeria Phone:</strong> <a href="tel:+2347042297094">+234 704 229 7094</a>
+          </li>
+          <li>
+            <strong>Cape Verde Phone:</strong> <a href="tel:+2389145325">+238 914 5325</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Governance &amp; Nile</h4>
+        <p class="footer-small-txt">
+          Prepared for Nile Africa Technologies Ltd &amp; TP. Compliant with PRD 1.0 working specification.
+        </p>
+        <div class="footer-meta-actions">
+          <a href="#admin" class="admin-footer-link" onclick="navigateTo('admin')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            Owner &amp; Nile Admin Inbox
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 TP Global Services. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <span>Privacy Policy</span>
+        <span>•</span>
+        <span>Terms of Service</span>
+        <span>•</span>
+        <span>Nigeria &amp; Cape Verde Hubs</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
