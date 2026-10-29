@@ -2,9 +2,9 @@
   "name": "tpglobal-services-website",
   "version": "1.0.0",
   "description": "TP Global Services - Unified Digital Platform for TP Stitches, Travels & Tours, Event Planner and Beauty Studio across Nigeria and Cape Verde",
-  "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node dev-server.js",
+    "dev": "node dev-server.js"
   },
   "keywords": [
     "tp-global-services",
