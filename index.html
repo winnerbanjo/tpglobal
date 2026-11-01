@@ -15,9 +15,11 @@
   <!-- Main Navigation Header (Single Unified Razor-Sharp Bar) -->
   <header class="site-header" id="mainHeader">
     <div class="container header-inner">
-      <!-- Minimalist Tech-Luxury Wordmark -->
+      <!-- Tech-Luxury Wordmark with Official Royal Crest -->
       <a href="#home" class="brand-logo" onclick="navigateTo('home')">
-        <div class="logo-mark">TP</div>
+        <div class="logo-mark-wrap">
+          <img src="assets/images/tp-global-logo.jpg" alt="TP Global Services Royal Crest" class="brand-crest-img">
+        </div>
         <div class="brand-text">
           <span class="brand-name">TP GLOBAL<span class="dot-accent">.</span></span>
           <span class="brand-country-tag">🇳🇬 NG • 🇨🇻 CV</span>
@@ -68,7 +70,9 @@
     <div class="mobile-drawer" id="mobileDrawer">
       <div class="mobile-drawer-header">
         <div class="brand-logo">
-          <div class="logo-mark">TP</div>
+          <div class="logo-mark-wrap">
+            <img src="assets/images/tp-global-logo.jpg" alt="TP Global Services Royal Crest" class="brand-crest-img">
+          </div>
           <span class="brand-name">TP GLOBAL<span class="dot-accent">.</span></span>
         </div>
         <button class="drawer-close-btn" id="mobileDrawerCloseBtn" aria-label="Close Mobile Menu">&times;</button>
@@ -641,6 +645,204 @@
             </div>
           </div>
 
+          <!-- Cape Verde Island Explorations (Sal, Boa Vista, Santiago) -->
+          <div class="travel-destinations-block">
+            <div class="block-header text-center">
+              <span class="section-subtitle">Cape Verde Archipelago Tours</span>
+              <h2>Featured Cape Verde Island Explorations</h2>
+              <div class="gold-accent-line"></div>
+              <p>Explore Cape Verde's most coveted Atlantic islands with on-the-ground support, VIP airport pickups, and curated excursions.</p>
+            </div>
+
+            <div class="island-grid">
+              <!-- Sal Island -->
+              <div class="island-card">
+                <div class="island-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Sal Island Turquoise Waters and Golden Sands" class="island-img">
+                  <span class="island-badge">Most Popular Resort Island</span>
+                </div>
+                <div class="island-body">
+                  <div class="airport-chip">
+                    <span class="ap-icon">✈️</span>
+                    <span>Amílcar Cabral International Airport (Sal International Airport)</span>
+                  </div>
+                  <h3>Sal Island (Ilha do Sal)</h3>
+                  <div class="tourist-sites">
+                    <span class="sites-label">Top Tourist Sites &amp; Excursions:</span>
+                    <ul class="sites-list">
+                      <li><strong>Santa Maria Beach &amp; Pier:</strong> World-renowned golden sand beach, crystal turquoise waters, and vibrant beachfront dining.</li>
+                      <li><strong>Shark Bay (Baía da Parda):</strong> Safe, thrilling wading with wild lemon sharks in their crystal shallows.</li>
+                      <li><strong>Buracona &amp; The Blue Eye (Olho Azul):</strong> Breathtaking volcanic natural pool illuminated by the mid-day sun.</li>
+                      <li><strong>Pedra de Lume Salt Crater:</strong> Buoyant floating mineral spa nestled inside an extinct volcanic caldera.</li>
+                      <li><strong>Kite Beach:</strong> World-class kitesurfing and ocean breeze promenades.</li>
+                    </ul>
+                  </div>
+                  <button type="button" class="btn btn-sm btn-outline btn-full-width" onclick="selectTravelDestination('Sal Island (Amílcar Cabral Airport)')">
+                    Select Sal Island Itinerary
+                  </button>
+                </div>
+              </div>
+
+              <!-- Boa Vista Island -->
+              <div class="island-card">
+                <div class="island-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=600&q=80" alt="Boa Vista Sand Dunes and Coastline" class="island-img">
+                  <span class="island-badge">Dunes &amp; Coastal Serenity</span>
+                </div>
+                <div class="island-body">
+                  <div class="airport-chip">
+                    <span class="ap-icon">✈️</span>
+                    <span>Aristides Pereira International Airport</span>
+                  </div>
+                  <h3>Boa Vista Island</h3>
+                  <div class="tourist-sites">
+                    <span class="sites-label">Top Tourist Sites &amp; Excursions:</span>
+                    <ul class="sites-list">
+                      <li><strong>Praia de Chaves:</strong> Dramatic shifting desert dunes meeting the Atlantic ocean.</li>
+                      <li><strong>Deserto de Viana:</strong> White Sahara sand desert formed by ocean trade winds; quad safari favorite.</li>
+                      <li><strong>Santa Monica Beach:</strong> 18 kilometers of untouched, breathtaking golden coastal paradise.</li>
+                      <li><strong>Shipwreck of Cabo Santa Maria:</strong> Famous 1968 Spanish cargo ship scenic coastal landmark.</li>
+                      <li><strong>Morro de Areia Nature Reserve:</strong> Protected loggerhead sea turtle nesting sanctuaries.</li>
+                    </ul>
+                  </div>
+                  <button type="button" class="btn btn-sm btn-outline btn-full-width" onclick="selectTravelDestination('Boa Vista Island (Aristides Pereira Airport)')">
+                    Select Boa Vista Itinerary
+                  </button>
+                </div>
+              </div>
+
+              <!-- Santiago Island -->
+              <div class="island-card">
+                <div class="island-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=600&q=80" alt="Santiago Island Cultural Heritage" class="island-img">
+                  <span class="island-badge">Culture &amp; Commercial Hub</span>
+                </div>
+                <div class="island-body">
+                  <div class="airport-chip">
+                    <span class="ap-icon">✈️</span>
+                    <span>Nelson Mandela International Airport (Praia)</span>
+                  </div>
+                  <h3>Santiago Island (Praia Hub)</h3>
+                  <div class="tourist-sites">
+                    <span class="sites-label">Top Tourist Sites &amp; Excursions:</span>
+                    <ul class="sites-list">
+                      <li><strong>Cidade Velha:</strong> UNESCO World Heritage Site, 16th-century Forte Real de São Filipe, and historic Pelourinho.</li>
+                      <li><strong>Tarrafal Beach:</strong> Iconic coconut palm bay sheltered by lush mountain peaks.</li>
+                      <li><strong>Serra Malagueta Natural Park:</strong> Volcanic mountain ridges, rich eco-trails, and panoramic valleys.</li>
+                      <li><strong>Sucupira Market &amp; Palmarejo:</strong> Bustling capital culture, artisan crafts, and TP Global Services direct hub.</li>
+                    </ul>
+                  </div>
+                  <button type="button" class="btn btn-sm btn-outline btn-full-width" onclick="selectTravelDestination('Santiago Island / Praia (Nelson Mandela Airport)')">
+                    Select Santiago Island Itinerary
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visa-Free & Easy Visa Tourism Destinations -->
+          <div class="visa-free-block">
+            <div class="block-header text-center">
+              <span class="section-subtitle">Effortless International Tourism</span>
+              <h2>Visa-Free &amp; Easy Visa Tourism Gateways</h2>
+              <div class="gold-accent-line"></div>
+              <p>Skip visa hassles with top destinations offering visa-free entry, visa on arrival, or instant e-Visa issuance for holiday travelers.</p>
+            </div>
+
+            <div class="visa-dest-grid">
+              <!-- Dubai -->
+              <div class="visa-card">
+                <div class="visa-top">
+                  <span class="v-flag">🇦🇪</span>
+                  <div class="v-meta">
+                    <h4>Dubai (United Arab Emirates)</h4>
+                    <span class="v-status">Visa on Arrival / Rapid e-Visa</span>
+                  </div>
+                </div>
+                <p class="v-sites-sub"><strong>Tourist Sites:</strong> Burj Khalifa, Dubai Mall fountain show, Desert Dune Bashing &amp; Arabian BBQ camp, luxury Marina yacht charters, and Palm Jumeirah beach clubs.</p>
+                <button type="button" class="btn-visa-pick" onclick="selectTravelDestination('Dubai, UAE')">Select Dubai</button>
+              </div>
+
+              <!-- Kenya -->
+              <div class="visa-card">
+                <div class="visa-top">
+                  <span class="v-flag">🇰🇪</span>
+                  <div class="v-meta">
+                    <h4>Kenya</h4>
+                    <span class="v-status">Electronic Travel Authorisation (ETA)</span>
+                  </div>
+                </div>
+                <p class="v-sites-sub"><strong>Tourist Sites:</strong> Masai Mara Great Wildlife Migration, Diani Beach turquoise coastal resorts, Nairobi Giraffe Centre, and Mount Kenya foothills.</p>
+                <button type="button" class="btn-visa-pick" onclick="selectTravelDestination('Kenya (Nairobi / Diani Beach)')">Select Kenya</button>
+              </div>
+
+              <!-- Rwanda -->
+              <div class="visa-card">
+                <div class="visa-top">
+                  <span class="v-flag">🇷🇼</span>
+                  <div class="v-meta">
+                    <h4>Rwanda</h4>
+                    <span class="v-status">30-Day Visa on Arrival for All</span>
+                  </div>
+                </div>
+                <p class="v-sites-sub"><strong>Tourist Sites:</strong> Kigali clean green metropolis, Volcanoes National Park Mountain Gorilla trekking, Lake Kivu serene resorts, and Nyungwe Forest canopy walkway.</p>
+                <button type="button" class="btn-visa-pick" onclick="selectTravelDestination('Rwanda (Kigali / Lake Kivu)')">Select Rwanda</button>
+              </div>
+
+              <!-- Mauritius -->
+              <div class="visa-card">
+                <div class="visa-top">
+                  <span class="v-flag">🇲🇺</span>
+                  <div class="v-meta">
+                    <h4>Mauritius</h4>
+                    <span class="v-status">Visa-Free Tourist Entry</span>
+                  </div>
+                </div>
+                <p class="v-sites-sub"><strong>Tourist Sites:</strong> Le Morne Brabant &amp; underwater waterfall vista, pristine coral lagoons, Île aux Cerfs catamaran cruising, and luxury beachfront golf resorts.</p>
+                <button type="button" class="btn-visa-pick" onclick="selectTravelDestination('Mauritius')">Select Mauritius</button>
+              </div>
+
+              <!-- Maldives -->
+              <div class="visa-card">
+                <div class="visa-top">
+                  <span class="v-flag">🇲🇻</span>
+                  <div class="v-meta">
+                    <h4>Maldives</h4>
+                    <span class="v-status">Free 30-Day Tourist Visa on Arrival</span>
+                  </div>
+                </div>
+                <p class="v-sites-sub"><strong>Tourist Sites:</strong> Secluded overwater private bungalows, crystal turquoise lagoons, manta ray reef snorkeling, and sunset dolphin cruises.</p>
+                <button type="button" class="btn-visa-pick" onclick="selectTravelDestination('Maldives (Overwater Resort)')">Select Maldives</button>
+              </div>
+
+              <!-- Qatar -->
+              <div class="visa-card">
+                <div class="visa-top">
+                  <span class="v-flag">🇶🇦</span>
+                  <div class="v-meta">
+                    <h4>Qatar</h4>
+                    <span class="v-status">90-Day / 30-Day Visa Waiver</span>
+                  </div>
+                </div>
+                <p class="v-sites-sub"><strong>Tourist Sites:</strong> Doha Corniche skyline, historic Souq Waqif spices and falcons, Museum of Islamic Art, and desert Inland Sea (Khor Al Adaid) safaris.</p>
+                <button type="button" class="btn-visa-pick" onclick="selectTravelDestination('Doha, Qatar')">Select Qatar</button>
+              </div>
+
+              <!-- Seychelles -->
+              <div class="visa-card">
+                <div class="visa-top">
+                  <span class="v-flag">🇸🇨</span>
+                  <div class="v-meta">
+                    <h4>Seychelles</h4>
+                    <span class="v-status">Visa-Free for All Travelers</span>
+                  </div>
+                </div>
+                <p class="v-sites-sub"><strong>Tourist Sites:</strong> Anse Source d'Argent granite boulder beach, Praslin Vallée de Mai prehistoric palms, and luxury island-hopping catamarans.</p>
+                <button type="button" class="btn-visa-pick" onclick="selectTravelDestination('Seychelles (Mahé / Praslin)')">Select Seychelles</button>
+              </div>
+            </div>
+          </div>
+
           <!-- Travel Quote Request Form -->
           <div class="form-card travel-form-card" id="travelFormContainer">
             <div class="form-header">
@@ -683,8 +885,20 @@
                 </div>
 
                 <div class="form-field">
-                  <label for="t_destination">Destination City</label>
-                  <input type="text" id="t_destination" name="destination" placeholder="e.g. Praia (Cape Verde), London, Paris">
+                  <label for="t_destination">Destination City or Island <span class="req">*</span></label>
+                  <input type="text" id="t_destination" name="destination" required placeholder="e.g. Sal Island, Praia, Dubai, Kenya...">
+                  <div class="quick-dest-pills">
+                    <span class="pills-title">Quick Select:</span>
+                    <button type="button" class="dest-pill" onclick="selectTravelDestination('Sal Island (Cape Verde)')">🇨🇻 Sal Island</button>
+                    <button type="button" class="dest-pill" onclick="selectTravelDestination('Boa Vista Island (Cape Verde)')">🇨🇻 Boa Vista</button>
+                    <button type="button" class="dest-pill" onclick="selectTravelDestination('Santiago Island (Praia, Cape Verde)')">🇨🇻 Santiago (Praia)</button>
+                    <button type="button" class="dest-pill" onclick="selectTravelDestination('Dubai, UAE')">🇦🇪 Dubai</button>
+                    <button type="button" class="dest-pill" onclick="selectTravelDestination('Kenya (Nairobi/Diani)')">🇰🇪 Kenya</button>
+                    <button type="button" class="dest-pill" onclick="selectTravelDestination('Rwanda')">🇷🇼 Rwanda</button>
+                    <button type="button" class="dest-pill" onclick="selectTravelDestination('Mauritius')">🇲🇺 Mauritius</button>
+                    <button type="button" class="dest-pill" onclick="selectTravelDestination('Maldives')">🇲🇻 Maldives</button>
+                    <button type="button" class="dest-pill" onclick="selectTravelDestination('Qatar')">🇶🇦 Qatar</button>
+                  </div>
                 </div>
 
                 <div class="form-field">
@@ -985,13 +1199,60 @@
             </div>
           </div>
 
+          <!-- Verified Beauty Service Rate Card & Transparent Price Calculator -->
+          <div class="beauty-pricing-section" id="beautyRateCard">
+            <div class="section-header text-center">
+              <span class="section-subtitle">Transparent Pricing Menu</span>
+              <h2>Verified Treatment Rate Card</h2>
+              <div class="gold-accent-line"></div>
+              <p>Explore official standard and exclusive luxury treatment pricing across Cape Verde Escudo (CVE), Euro (€), and British Pounds (£).</p>
+            </div>
+
+            <!-- Currency & Category Controls Toolbar -->
+            <div class="beauty-toolbar">
+              <!-- Category Filter Tabs -->
+              <div class="beauty-cat-tabs" id="beautyCatTabs">
+                <button type="button" class="b-cat-btn active" data-bcat="all" onclick="filterBeautyMenu('all')">All Services</button>
+                <button type="button" class="b-cat-btn" data-bcat="mani-pedi" onclick="filterBeautyMenu('mani-pedi')">Manicure &amp; Pedicure</button>
+                <button type="button" class="b-cat-btn" data-bcat="makeup" onclick="filterBeautyMenu('makeup')">Makeup Artistry</button>
+                <button type="button" class="b-cat-btn" data-bcat="massage" onclick="filterBeautyMenu('massage')">Body Massage &amp; Spa</button>
+                <button type="button" class="b-cat-btn" data-bcat="custom" onclick="filterBeautyMenu('custom')">Nails, Lashes &amp; Special</button>
+              </div>
+
+              <!-- Beauty Currency Switcher -->
+              <div class="beauty-curr-switch">
+                <span class="b-curr-label">Currency:</span>
+                <div class="b-curr-pills">
+                  <button type="button" class="b-curr-btn active" data-bcurr="CVE" onclick="switchBeautyCurrency('CVE')">CVE (Escudo)</button>
+                  <button type="button" class="b-curr-btn" data-bcurr="EUR" onclick="switchBeautyCurrency('EUR')">EUR (€)</button>
+                  <button type="button" class="b-curr-btn" data-bcurr="GBP" onclick="switchBeautyCurrency('GBP')">GBP (£)</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic Rate Card Container -->
+            <div class="rate-card-container" id="rateCardContainer">
+              <!-- Injected dynamically by app.js with instant currency calculation -->
+            </div>
+
+            <!-- Bespoke Notice Banner -->
+            <div class="bespoke-notice-banner">
+              <div class="bn-icon">✨</div>
+              <div class="bn-text">
+                <strong>Need a custom or unlisted beauty service?</strong>
+                <p>Choose <strong>"Special"</strong> in the appointment preferences below. Our senior beauty therapist will consult with you on WhatsApp and disclose your personalized price quote.</p>
+              </div>
+              <button type="button" class="btn btn-sm btn-outline" onclick="selectBeautySpecial()">Book Special Consultation</button>
+            </div>
+          </div>
+
           <!-- Appointment Request Form -->
           <div class="form-card beauty-form-card" id="beautyFormContainer">
             <div class="form-header">
               <span class="form-tag">Appointment Request</span>
               <h2>Request a Studio Appointment</h2>
               <p>
-                Please note: Submitting this form requests a booking slot. Our studio concierge will contact you on WhatsApp or phone to confirm exact availability and location details.
+                Select your preferred service, tier, and schedule below. Our studio concierge will contact you directly on WhatsApp to confirm your slot and details.
               </p>
             </div>
 
@@ -1009,14 +1270,49 @@
 
                 <div class="form-field">
                   <label for="b_service">Select Desired Treatment <span class="req">*</span></label>
-                  <select id="b_service" name="service" required>
-                    <option value="Nail Technician Services">Nail Technician Services</option>
-                    <option value="Lash Technician Artistry">Lash Technician Artistry</option>
-                    <option value="Body Massage & Wellness">Body Massage &amp; Wellness</option>
-                    <option value="Glamour & Bridal Makeup">Glamour &amp; Bridal Makeup</option>
-                    <option value="Luxury Spa Pedicure">Luxury Spa Pedicure</option>
-                    <option value="Executive Manicure">Executive Manicure</option>
-                    <option value="Multiple Treatments Combo">Multiple Treatments Combo</option>
+                  <select id="b_service" name="service" required onchange="handleBeautyServiceChange(this.value)">
+                    <optgroup label="Manicure &amp; Pedicure">
+                      <option value="Standard Manicure (800–1,200 CVE / €7.26–10.88)">Standard Manicure (800–1,200 CVE / €7.26–10.88)</option>
+                      <option value="Exclusive Manicure (2,000–3,500 CVE / €18.14–31.74)">Exclusive Manicure (2,000–3,500 CVE / €18.14–31.74)</option>
+                      <option value="Standard Pedicure (1,000–1,500 CVE / €9.07–13.60)">Standard Pedicure (1,000–1,500 CVE / €9.07–13.60)</option>
+                      <option value="Exclusive Pedicure (2,500–4,000 CVE / €22.67–36.28)">Exclusive Pedicure (2,500–4,000 CVE / €22.67–36.28)</option>
+                      <option value="Standard Combo Mani+Pedi (1,800–2,500 CVE / €16.32–22.67)">Standard Combo Mani+Pedi (1,800–2,500 CVE / €16.32–22.67)</option>
+                      <option value="Exclusive Combo Mani+Pedi (4,500–7,000 CVE / €40.81–63.48)">Exclusive Combo Mani+Pedi (4,500–7,000 CVE / €40.81–63.48)</option>
+                    </optgroup>
+                    <optgroup label="Makeup Services">
+                      <option value="Standard Everyday Makeup (2,500 CVE / €22.67 / £18.91)">Standard Everyday Makeup (2,500 CVE / €22.67 / £18.91)</option>
+                      <option value="Exclusive Everyday Makeup (4,000 CVE / €36.28 / £30.25)">Exclusive Everyday Makeup (4,000 CVE / €36.28 / £30.25)</option>
+                      <option value="Standard Party Makeup (3,500 CVE / €31.74 / £26.47)">Standard Party Makeup (3,500 CVE / €31.74 / £26.47)</option>
+                      <option value="Exclusive Party Makeup (5,500 CVE / €49.88 / £41.59)">Exclusive Party Makeup (5,500 CVE / €49.88 / £41.59)</option>
+                      <option value="Standard Event Makeup (4,000 CVE / €36.28 / £30.25)">Standard Event Makeup (4,000 CVE / €36.28 / £30.25)</option>
+                      <option value="Exclusive Event Makeup (6,500 CVE / €58.95 / £49.15)">Exclusive Event Makeup (6,500 CVE / €58.95 / £49.15)</option>
+                      <option value="Standard Luxury/Glam Makeup (5,000 CVE / €45.35 / £37.81)">Standard Luxury/Glam Makeup (5,000 CVE / €45.35 / £37.81)</option>
+                      <option value="Exclusive Luxury/Glam Makeup (8,000 CVE / €72.55 / £60.50)">Exclusive Luxury/Glam Makeup (8,000 CVE / €72.55 / £60.50)</option>
+                      <option value="Standard Bridal Makeup (7,000 CVE / €63.48 / £52.94)">Standard Bridal Makeup (7,000 CVE / €63.48 / £52.94)</option>
+                      <option value="Exclusive Bridal Makeup (12,000 CVE / €108.83 / £90.75)">Exclusive Bridal Makeup (12,000 CVE / €108.83 / £90.75)</option>
+                    </optgroup>
+                    <optgroup label="Body Massage &amp; Spa">
+                      <option value="Standard 30 Minutes Massage (2,000 CVE / €18.14 / £15.12)">Standard 30 Minutes Massage (2,000 CVE / €18.14 / £15.12)</option>
+                      <option value="Exclusive 30 Minutes Massage (3,500 CVE / €31.74 / £26.47)">Exclusive 30 Minutes Massage (3,500 CVE / €31.74 / £26.47)</option>
+                      <option value="Standard 45 Minutes Massage (2,500 CVE / €22.67 / £18.91)">Standard 45 Minutes Massage (2,500 CVE / €22.67 / £18.91)</option>
+                      <option value="Exclusive 45 Minutes Massage (4,500 CVE / €40.81 / £34.03)">Exclusive 45 Minutes Massage (4,500 CVE / €40.81 / £34.03)</option>
+                      <option value="Standard 60 Minutes Massage (3,500 CVE / €31.74 / £26.47)">Standard 60 Minutes Massage (3,500 CVE / €31.74 / £26.47)</option>
+                      <option value="Exclusive 60 Minutes Massage (6,000 CVE / €54.41 / £45.37)">Exclusive 60 Minutes Massage (6,000 CVE / €54.41 / £45.37)</option>
+                      <option value="Standard 90 Minutes Massage (5,000 CVE / €45.35 / £37.81)">Standard 90 Minutes Massage (5,000 CVE / €45.35 / £37.81)</option>
+                      <option value="Exclusive 90 Minutes Massage (8,500 CVE / €77.09 / £64.28)">Exclusive 90 Minutes Massage (8,500 CVE / €77.09 / £64.28)</option>
+                      <option value="Standard Hot Stone Massage (4,500 CVE / €40.81 / £34.03)">Standard Hot Stone Massage (4,500 CVE / €40.81 / £34.03)</option>
+                      <option value="Exclusive Hot Stone Massage (7,000 CVE / €63.48 / £52.94)">Exclusive Hot Stone Massage (7,000 CVE / €63.48 / €52.94)</option>
+                      <option value="Standard Couples Massage (6,000 CVE / €54.41 / £45.37)">Standard Couples Massage (6,000 CVE / €54.41 / £45.37)</option>
+                      <option value="Exclusive Couples Massage (10,000 CVE / €90.69 / £75.62)">Exclusive Couples Massage (10,000 CVE / €90.69 / £75.62)</option>
+                    </optgroup>
+                    <optgroup label="Nail &amp; Lash Specialist">
+                      <option value="Sculpted Acrylics / BIAB Builder Gel Nails">Sculpted Acrylics / BIAB Builder Gel Nails</option>
+                      <option value="Classic / Hybrid / Russian Volume Lash Extensions">Classic / Hybrid / Russian Volume Lash Extensions</option>
+                      <option value="Lash Lift &amp; Tint Semi-Permanent Treatment">Lash Lift &amp; Tint Semi-Permanent Treatment</option>
+                    </optgroup>
+                    <optgroup label="Bespoke Custom Requests">
+                      <option value="✨ Special / Bespoke Service (Price Disclosed After Consultation)">✨ Special / Bespoke Service (Price Disclosed After Consultation)</option>
+                    </optgroup>
                   </select>
                 </div>
 
@@ -1045,9 +1341,48 @@
                 </div>
               </div>
 
+              <!-- Specific Preferences & Tier Options -->
               <div class="form-field full-width">
-                <label for="b_notes">Specific Preferences or Inspiration</label>
-                <textarea id="b_notes" name="notes" rows="2" placeholder="e.g. Length preferences for nails, lash volume style, or special occasion date..."></textarea>
+                <label>Specific Preferences &amp; Service Tier <span class="req">*</span></label>
+                <div class="tier-choice-group">
+                  <label class="tier-radio-card">
+                    <input type="radio" name="serviceTier" value="Standard Tier (Catalog Rate)" checked onchange="toggleSpecialNotice(false)">
+                    <div class="t-radio-content">
+                      <div class="t-radio-title">Standard Tier</div>
+                      <div class="t-radio-desc">Official published catalog price • Reliable specialist care</div>
+                    </div>
+                  </label>
+
+                  <label class="tier-radio-card">
+                    <input type="radio" name="serviceTier" value="Exclusive VIP Tier" onchange="toggleSpecialNotice(false)">
+                    <div class="t-radio-content">
+                      <div class="t-radio-title">Exclusive VIP Tier</div>
+                      <div class="t-radio-desc">Elevated premium products • Dedicated senior specialist</div>
+                    </div>
+                  </label>
+
+                  <label class="tier-radio-card special-tier-card">
+                    <input type="radio" name="serviceTier" id="tierSpecialRadio" value="Special (Price Disclosed After Consultation)" onchange="toggleSpecialNotice(true)">
+                    <div class="t-radio-content">
+                      <div class="t-radio-title">✨ Special / Custom Request</div>
+                      <div class="t-radio-desc">For services not in the catalogue • Price disclosed after consultation</div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Dynamic Special Consultation Callout -->
+              <div class="special-consult-alert hidden" id="specialConsultAlert">
+                <div class="sca-icon">✨</div>
+                <div class="sca-content">
+                  <strong>Special / Bespoke Service Selected</strong>
+                  <p>Because your requested treatment is outside the standard published catalogue, our senior beauty director will personally review your inspiration and disclose your custom quote directly via WhatsApp after consultation.</p>
+                </div>
+              </div>
+
+              <div class="form-field full-width">
+                <label for="b_notes">Specific Notes, Inspiration or Custom Details</label>
+                <textarea id="b_notes" name="notes" rows="3" placeholder="Describe length preferences for nails, lash volume style, skin sensitivities, or unlisted custom service details..."></textarea>
               </div>
 
               <div class="form-actions">
@@ -1169,8 +1504,8 @@
                 <a href="https://wa.me/2347042297094" target="_blank" rel="noopener noreferrer" class="hub-link-item wa">
                   <span class="h-icon">💬</span> Chat on WhatsApp (Nigeria)
                 </a>
-                <a href="mailto:tpwears14@gmail.com" class="hub-link-item">
-                  <span class="h-icon">✉️</span> tpwears14@gmail.com
+                <a href="mailto:tpglobalservices14@gmail.com" class="hub-link-item">
+                  <span class="h-icon">✉️</span> tpglobalservices14@gmail.com
                 </a>
               </div>
             </div>
@@ -1195,8 +1530,8 @@
                 <a href="https://wa.me/2389145325" target="_blank" rel="noopener noreferrer" class="hub-link-item wa">
                   <span class="h-icon">💬</span> Chat on WhatsApp (Cape Verde)
                 </a>
-                <a href="mailto:tpwears14@gmail.com" class="hub-link-item">
-                  <span class="h-icon">✉️</span> tpwears14@gmail.com
+                <a href="mailto:tpglobalservices14@gmail.com" class="hub-link-item">
+                  <span class="h-icon">✉️</span> tpglobalservices14@gmail.com
                 </a>
               </div>
             </div>
@@ -1398,8 +1733,11 @@
     <div class="container footer-top">
       <div class="footer-col brand-col">
         <div class="footer-logo">
-          <span class="mono-text">TP</span>
-          <span class="brand-name">TP GLOBAL SERVICES</span>
+          <img src="assets/images/tp-global-logo.jpg" alt="TP Global Services Crest" class="footer-crest-img">
+          <div class="footer-brand-title">
+            <span class="brand-name">TP GLOBAL SERVICES</span>
+            <span class="footer-brand-tagline">LUXURY • ELEGANCE • EXCELLENCE</span>
+          </div>
         </div>
         <p class="footer-tagline">
           “One brand. Distinctive experiences.”
@@ -1440,7 +1778,7 @@
             <strong>Cape Verde:</strong> Praça Center Palmarejo
           </li>
           <li>
-            <strong>Email:</strong> <a href="mailto:tpwears14@gmail.com">tpwears14@gmail.com</a>
+            <strong>Email:</strong> <a href="mailto:tpglobalservices14@gmail.com">tpglobalservices14@gmail.com</a>
           </li>
           <li>
             <strong>Nigeria Phone:</strong> <a href="tel:+2347042297094">+234 704 229 7094</a>

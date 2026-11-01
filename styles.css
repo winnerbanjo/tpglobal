@@ -188,6 +188,33 @@ input, select, textarea {
   gap: 12px;
 }
 
+.logo-mark-wrap {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  border: 1.5px solid var(--yellow-primary);
+  box-shadow: 0 0 16px rgba(255, 220, 0, 0.35);
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.brand-logo:hover .logo-mark-wrap {
+  transform: scale(1.06);
+  box-shadow: 0 0 22px rgba(255, 220, 0, 0.55);
+}
+
+.brand-crest-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .logo-mark {
   width: 36px;
   height: 36px;
@@ -2943,8 +2970,32 @@ input, select, textarea {
 .brand-col .footer-logo {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.footer-crest-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--yellow-primary);
+  box-shadow: 0 0 16px rgba(255, 220, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.footer-brand-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand-tagline {
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  color: var(--yellow-primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 3px;
 }
 
 .brand-col .brand-name {
@@ -3311,3 +3362,639 @@ input, select, textarea {
     align-items: flex-start;
   }
 }
+
+/* ========================================================
+   TRAVELS & TOURS: CAPE VERDE ISLANDS & VISA-FREE DESTINATIONS
+   ======================================================== */
+.travel-destinations-block {
+  margin: 60px 0 50px;
+}
+
+.island-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.island-card {
+  background: #11141C;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.island-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--yellow-border);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 16px rgba(255, 220, 0, 0.15);
+}
+
+.island-img-wrap {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.island-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.island-card:hover .island-img {
+  transform: scale(1.05);
+}
+
+.island-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(7, 8, 11, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--yellow-primary);
+  border: 1px solid var(--yellow-border);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.island-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.airport-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 220, 0, 0.08);
+  border: 1px solid rgba(255, 220, 0, 0.2);
+  color: #E2E8F0;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  line-height: 1.35;
+}
+
+.airport-chip .ap-icon {
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.island-body h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+.tourist-sites {
+  margin-bottom: 22px;
+  flex-grow: 1;
+}
+
+.sites-label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--yellow-primary);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.sites-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sites-list li {
+  font-size: 0.82rem;
+  color: #CBD5E1;
+  line-height: 1.45;
+  padding-left: 14px;
+  position: relative;
+}
+
+.sites-list li::before {
+  content: "•";
+  color: var(--yellow-primary);
+  position: absolute;
+  left: 0;
+  font-weight: 900;
+}
+
+.sites-list li strong {
+  color: #FFFFFF;
+}
+
+/* Visa-Free Block */
+.visa-free-block {
+  margin: 70px 0 50px;
+  padding: 40px 30px;
+  background: #0D1017;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.visa-dest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.visa-card {
+  background: #141822;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+
+.visa-card:hover {
+  border-color: var(--yellow-border);
+  transform: translateY(-2px);
+  background: #181D2A;
+}
+
+.visa-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.v-flag {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.v-meta h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.v-status {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--yellow-primary);
+  background: rgba(255, 220, 0, 0.1);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 220, 0, 0.2);
+}
+
+.v-sites-sub {
+  font-size: 0.8rem;
+  color: #94A3B8;
+  line-height: 1.45;
+  margin-bottom: 14px;
+  flex-grow: 1;
+}
+
+.v-sites-sub strong {
+  color: #E2E8F0;
+}
+
+.btn-visa-pick {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  padding: 7px 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  align-self: flex-start;
+}
+
+.btn-visa-pick:hover {
+  background: var(--yellow-primary);
+  color: #07080B;
+  border-color: var(--yellow-primary);
+}
+
+/* Quick Destination Pills in Travel Form */
+.quick-dest-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.pills-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--yellow-primary);
+  margin-right: 4px;
+}
+
+.dest-pill {
+  background: #181D2A;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #CBD5E1;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dest-pill:hover {
+  background: rgba(255, 220, 0, 0.15);
+  border-color: var(--yellow-primary);
+  color: #FFFFFF;
+}
+
+/* ========================================================
+   BEAUTY STUDIO: RATE CARD & TRANSPARENT PRICING
+   ======================================================== */
+.beauty-pricing-section {
+  margin: 50px 0 50px;
+  padding: 45px 32px;
+  background: #0B0E14;
+  border: 1px solid rgba(255, 220, 0, 0.2);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.beauty-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 30px;
+  margin-bottom: 28px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.beauty-cat-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.b-cat-btn {
+  background: #141822;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94A3B8;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.b-cat-btn:hover {
+  color: #FFFFFF;
+  border-color: rgba(255, 220, 0, 0.4);
+}
+
+.b-cat-btn.active {
+  background: var(--yellow-primary);
+  color: #07080B;
+  border-color: var(--yellow-primary);
+  box-shadow: 0 0 14px rgba(255, 220, 0, 0.35);
+}
+
+.beauty-curr-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.b-curr-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.b-curr-pills {
+  display: flex;
+  background: #141822;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  padding: 3px;
+}
+
+.b-curr-btn {
+  background: transparent;
+  border: none;
+  color: #94A3B8;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.b-curr-btn:hover {
+  color: #FFFFFF;
+}
+
+.b-curr-btn.active {
+  background: var(--yellow-primary);
+  color: #07080B;
+  font-weight: 800;
+}
+
+/* Rate Card Table / Grid */
+.rate-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.rate-item-card {
+  background: #121620;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+
+.rate-item-card:hover {
+  border-color: var(--yellow-border);
+  transform: translateY(-2px);
+  background: #171C28;
+}
+
+.rate-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.rate-item-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.35;
+}
+
+.tier-pill {
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.tier-pill.standard {
+  background: rgba(255, 255, 255, 0.08);
+  color: #CBD5E1;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.tier-pill.exclusive {
+  background: rgba(255, 220, 0, 0.15);
+  color: var(--yellow-primary);
+  border: 1px solid var(--yellow-border);
+}
+
+.tier-pill.special {
+  background: linear-gradient(135deg, rgba(255, 220, 0, 0.25), rgba(255, 180, 0, 0.1));
+  color: #FFDE59;
+  border: 1px solid rgba(255, 220, 0, 0.4);
+}
+
+.rate-cat-tag {
+  font-size: 0.72rem;
+  color: #94A3B8;
+  margin-bottom: 14px;
+}
+
+.rate-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.rate-price-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.rate-main-price {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--yellow-primary);
+}
+
+.rate-alt-price {
+  font-size: 0.72rem;
+  color: #64748B;
+  margin-top: 2px;
+}
+
+.btn-book-rate {
+  background: rgba(255, 220, 0, 0.1);
+  border: 1px solid var(--yellow-border);
+  color: var(--yellow-primary);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-book-rate:hover {
+  background: var(--yellow-primary);
+  color: #07080B;
+}
+
+/* Bespoke Notice Banner */
+.bespoke-notice-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: linear-gradient(90deg, rgba(255, 220, 0, 0.12), rgba(255, 220, 0, 0.04));
+  border: 1px solid var(--yellow-border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin-top: 28px;
+}
+
+.bn-icon {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.bn-text {
+  flex-grow: 1;
+}
+
+.bn-text strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.bn-text p {
+  font-size: 0.82rem;
+  color: #CBD5E1;
+  margin: 0;
+}
+
+/* Specific Preferences & Tier Options in Form */
+.tier-choice-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.tier-radio-card {
+  background: #141822;
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: var(--transition);
+}
+
+.tier-radio-card:hover {
+  border-color: rgba(255, 220, 0, 0.4);
+}
+
+.tier-radio-card input[type="radio"] {
+  accent-color: var(--yellow-primary);
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+}
+
+.tier-radio-card:has(input[type="radio"]:checked) {
+  border-color: var(--yellow-primary);
+  background: rgba(255, 220, 0, 0.06);
+  box-shadow: 0 0 16px rgba(255, 220, 0, 0.15);
+}
+
+.special-tier-card:has(input[type="radio"]:checked) {
+  border-color: #FFDD00;
+  background: linear-gradient(135deg, rgba(255, 220, 0, 0.12), rgba(0, 0, 0, 0.2));
+}
+
+.t-radio-title {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 2px;
+}
+
+.t-radio-desc {
+  font-size: 0.74rem;
+  color: #94A3B8;
+  line-height: 1.35;
+}
+
+/* Dynamic Special Consultation Callout */
+.special-consult-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(255, 220, 0, 0.12);
+  border: 1px solid var(--yellow-primary);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-bottom: 18px;
+  animation: fadeInAlert 0.3s ease;
+}
+
+.special-consult-alert.hidden {
+  display: none !important;
+}
+
+@keyframes fadeInAlert {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sca-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.sca-content strong {
+  display: block;
+  font-size: 0.9rem;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.sca-content p {
+  font-size: 0.8rem;
+  color: #E2E8F0;
+  line-height: 1.45;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .island-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tier-choice-group {
+    grid-template-columns: 1fr;
+  }
+
+  .bespoke-notice-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+

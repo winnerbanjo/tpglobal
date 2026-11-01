@@ -151,6 +151,8 @@ const FASHION_CATALOGUE = [
 const APP_STATE = {
   currentView: 'home',
   currency: 'NGN', // 'NGN' or 'GBP'
+  beautyCurrency: 'CVE', // 'CVE', 'EUR', or 'GBP'
+  beautyCategory: 'all',
   filters: {
     gender: 'All',
     category: 'All',
@@ -164,7 +166,7 @@ const APP_STATE = {
 const CONTACT_INFO = {
   nigeriaWhatsApp: '2347042297094',
   capeVerdeWhatsApp: '2389145325',
-  email: 'tpwears14@gmail.com'
+  email: 'tpglobalservices14@gmail.com'
 };
 
 // ========================================================
@@ -176,6 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCurrencySelector();
   initMobileMenu();
   renderCatalogue();
+  initBeautyRateCard();
   updateLeadCounters();
   renderAdminLeads();
 });
@@ -596,6 +599,18 @@ function handleTravelSubmit(e) {
   window.open(`https://wa.me/${CONTACT_INFO.nigeriaWhatsApp}?text=${waText}`, '_blank');
 }
 
+function selectTravelDestination(destName) {
+  const destInput = document.getElementById('t_destination');
+  if (destInput) {
+    destInput.value = destName;
+  }
+  const formCard = document.getElementById('travelFormContainer');
+  if (formCard) {
+    formCard.scrollIntoView({ behavior: 'smooth' });
+  }
+  showToast('Destination Selected', `Updated destination to "${destName}".`);
+}
+
 // Division C: Event Planner Submit Handler
 function handleEventSubmit(e) {
   e.preventDefault();
@@ -635,33 +650,528 @@ function updateGuestDisplay(val) {
   }
 }
 
-// Division D: Beauty Studio Appointment Handler
-function handleBeautySubmit(e) {
-  e.preventDefault();
-  const form = e.target;
-  const formData = new FormData(form);
+// ========================================================
+// BEAUTY STUDIO DATA & VERIFIED TREATMENT RATE CARD ENGINE
+// (PRD & WhatsApp Updates: Manicure, Pedicure, Makeup, Massage & Special)
+// ========================================================
+const BEAUTY_SERVICES_DATA = [
+  // MANICURE & PEDICURE
+  {
+    id: 'bs-01',
+    category: 'mani-pedi',
+    categoryName: 'Manicure & Pedicure',
+    title: 'Standard Manicure',
+    tier: 'standard',
+    priceCVE: '800–1,200 CVE',
+    priceEUR: '€7.26–10.88',
+    priceGBP: '£6.05–9.07',
+    description: 'Precision nail trimming, shaping, cuticle care, conditioning hand lotion, and natural shine buff.'
+  },
+  {
+    id: 'bs-02',
+    category: 'mani-pedi',
+    categoryName: 'Manicure & Pedicure',
+    title: 'Exclusive Manicure',
+    tier: 'exclusive',
+    priceCVE: '2,000–3,500 CVE',
+    priceEUR: '€18.14–31.74',
+    priceGBP: '£15.12–26.47',
+    description: 'Deluxe paraffin treatment, gentle exfoliating scrub, extended acupressure hand massage, and protective gel finish.'
+  },
+  {
+    id: 'bs-03',
+    category: 'mani-pedi',
+    categoryName: 'Manicure & Pedicure',
+    title: 'Standard Pedicure',
+    tier: 'standard',
+    priceCVE: '1,000–1,500 CVE',
+    priceEUR: '€9.07–13.60',
+    priceGBP: '£7.56–11.34',
+    description: 'Refreshing aromatic foot soak, gentle scrub, nail shaping, cuticle therapy, and moisturising foot massage.'
+  },
+  {
+    id: 'bs-04',
+    category: 'mani-pedi',
+    categoryName: 'Manicure & Pedicure',
+    title: 'Exclusive Pedicure',
+    tier: 'exclusive',
+    priceCVE: '2,500–4,000 CVE',
+    priceEUR: '€22.67–36.28',
+    priceGBP: '£18.91–30.25',
+    description: 'Deep detox foot soak, invigorating sugar scrub, intensive callus therapy, hydrating mask, hot towels, and extended massage.'
+  },
+  {
+    id: 'bs-05',
+    category: 'mani-pedi',
+    categoryName: 'Manicure & Pedicure',
+    title: 'Standard Combo (Mani + Pedi)',
+    tier: 'standard',
+    priceCVE: '1,800–2,500 CVE',
+    priceEUR: '€16.32–22.67',
+    priceGBP: '£13.61–18.91',
+    description: 'Complete simultaneous grooming pairing our standard manicure and standard pedicure in a synchronized relaxing session.'
+  },
+  {
+    id: 'bs-06',
+    category: 'mani-pedi',
+    categoryName: 'Manicure & Pedicure',
+    title: 'Exclusive Combo (Mani + Pedi)',
+    tier: 'exclusive',
+    priceCVE: '4,500–7,000 CVE',
+    priceEUR: '€40.81–63.48',
+    priceGBP: '£34.03–52.94',
+    description: 'The premier luxury treatment: deluxe paraffin hands, hot towel feet, deep aromatherapy massage, and salon-grade topcoat.'
+  },
 
-  const lead = {
-    division: 'Beauty Studio',
-    leadType: 'Appointment Request',
-    customerName: formData.get('clientName'),
-    phone: formData.get('phone'),
-    email: 'Phone/WhatsApp Preferred',
-    country: 'Nigeria',
-    serviceOrItem: formData.get('service'),
-    notes: `Preferred Date: ${formData.get('preferredDate') || 'Flexible'}. Preferred Time: ${formData.get('preferredTime')}. Contact Method: ${formData.get('contactPref')}. Notes: ${formData.get('notes') || 'None'}`,
-    status: 'New'
-  };
+  // MAKEUP SERVICES
+  {
+    id: 'bs-07',
+    category: 'makeup',
+    categoryName: 'Makeup Artistry',
+    title: 'Standard Everyday Makeup',
+    tier: 'standard',
+    priceCVE: '2,500 CVE',
+    priceEUR: '€22.67',
+    priceGBP: '£18.91',
+    description: 'Clean, radiant lightweight application designed for daytime meetings, business appearances, and effortless elegance.'
+  },
+  {
+    id: 'bs-08',
+    category: 'makeup',
+    categoryName: 'Makeup Artistry',
+    title: 'Exclusive Everyday Makeup',
+    tier: 'exclusive',
+    priceCVE: '4,000 CVE',
+    priceEUR: '€36.28',
+    priceGBP: '£30.25',
+    description: 'Elevated daytime radiance using luxury foundation blends, subtle sculpting, brow framing, and setting mist for all-day perfection.'
+  },
+  {
+    id: 'bs-09',
+    category: 'makeup',
+    categoryName: 'Makeup Artistry',
+    title: 'Standard Party Makeup',
+    tier: 'standard',
+    priceCVE: '3,500 CVE',
+    priceEUR: '€31.74',
+    priceGBP: '£26.47',
+    description: 'Glamorous, long-wearing party look with defined eyes, customized lash placement, and photogenic contouring.'
+  },
+  {
+    id: 'bs-10',
+    category: 'makeup',
+    categoryName: 'Makeup Artistry',
+    title: 'Exclusive Party Makeup',
+    tier: 'exclusive',
+    priceCVE: '5,500 CVE',
+    priceEUR: '€49.88',
+    priceGBP: '£41.59',
+    description: 'Red-carpet intensity featuring HD airbrush finish, shimmer accents, bespoke lashes, and camera-proof longevity.'
+  },
+  {
+    id: 'bs-11',
+    category: 'makeup',
+    categoryName: 'Makeup Artistry',
+    title: 'Standard Event Makeup',
+    tier: 'standard',
+    priceCVE: '4,000 CVE',
+    priceEUR: '€36.28',
+    priceGBP: '£30.25',
+    description: 'High-definition coverage tailored for gala dinners, conferences, family celebrations, and stage appearances.'
+  },
+  {
+    id: 'bs-12',
+    category: 'makeup',
+    categoryName: 'Makeup Artistry',
+    title: 'Exclusive Event Makeup',
+    tier: 'exclusive',
+    priceCVE: '6,500 CVE',
+    priceEUR: '€58.95',
+    priceGBP: '£49.15',
+    description: 'VIP gala transformation including skin prep facial boost, waterproof application, custom pigments, and luxury touch-up kit.'
+  },
+  {
+    id: 'bs-13',
+    category: 'makeup',
+    categoryName: 'Makeup Artistry',
+    title: 'Standard Luxury / Glam Makeup',
+    tier: 'standard',
+    priceCVE: '5,000 CVE',
+    priceEUR: '€45.35',
+    priceGBP: '£37.81',
+    description: 'Full Hollywood soft-glam, seamless cut crease, defined cheekbone highlights, and velvety matte or gloss lip contour.'
+  },
+  {
+    id: 'bs-14',
+    category: 'makeup',
+    categoryName: 'Makeup Artistry',
+    title: 'Exclusive Luxury / Glam Makeup',
+    tier: 'exclusive',
+    priceCVE: '8,000 CVE',
+    priceEUR: '€72.55',
+    priceGBP: '£60.50',
+    description: 'Masterclass high-fashion glam by our lead artist with luxury skincare prep, couture lashes, and lighting-adaptive complexion.'
+  },
+  {
+    id: 'bs-15',
+    category: 'makeup',
+    categoryName: 'Makeup Artistry',
+    title: 'Standard Bridal Makeup',
+    tier: 'standard',
+    priceCVE: '7,000 CVE',
+    priceEUR: '€63.48',
+    priceGBP: '£52.94',
+    description: 'Timeless, romantic bridal aesthetic formulated to withstand emotion, warmth, and high-resolution flash photography.'
+  },
+  {
+    id: 'bs-16',
+    category: 'makeup',
+    categoryName: 'Makeup Artistry',
+    title: 'Exclusive Bridal Makeup',
+    tier: 'exclusive',
+    priceCVE: '12,000 CVE',
+    priceEUR: '€108.83',
+    priceGBP: '£90.75',
+    description: 'Couture bridal package: personal consultation, luxury skin prep ritual, bespoke lash styling, veil setting, and artist touch-up kit.'
+  },
 
-  createLead(lead);
-  form.reset();
+  // MASSAGE SERVICES
+  {
+    id: 'bs-17',
+    category: 'massage',
+    categoryName: 'Massage & Spa',
+    title: 'Standard 30 Minutes Massage',
+    tier: 'standard',
+    priceCVE: '2,000 CVE',
+    priceEUR: '€18.14',
+    priceGBP: '£15.12',
+    description: 'Targeted neck, shoulder, and upper back express massage for fast desk tension and travel fatigue relief.'
+  },
+  {
+    id: 'bs-18',
+    category: 'massage',
+    categoryName: 'Massage & Spa',
+    title: 'Exclusive 30 Minutes Massage',
+    tier: 'exclusive',
+    priceCVE: '3,500 CVE',
+    priceEUR: '€31.74',
+    priceGBP: '£26.47',
+    description: 'Concentrated deep-tissue trigger point therapy with warming herbal balm and hot towel finish.'
+  },
+  {
+    id: 'bs-19',
+    category: 'massage',
+    categoryName: 'Massage & Spa',
+    title: 'Standard 45 Minutes Massage',
+    tier: 'standard',
+    priceCVE: '2,500 CVE',
+    priceEUR: '€22.67',
+    priceGBP: '£18.91',
+    description: 'Focused relaxation therapy covering upper body and legs to restore circulation and muscle flexibility.'
+  },
+  {
+    id: 'bs-20',
+    category: 'massage',
+    categoryName: 'Massage & Spa',
+    title: 'Exclusive 45 Minutes Massage',
+    tier: 'exclusive',
+    priceCVE: '4,500 CVE',
+    priceEUR: '€40.81',
+    priceGBP: '£34.03',
+    description: 'Therapeutic muscle recovery with organic botanical essential oils and warm compress soothing.'
+  },
+  {
+    id: 'bs-21',
+    category: 'massage',
+    categoryName: 'Massage & Spa',
+    title: 'Standard 60 Minutes Massage',
+    tier: 'standard',
+    priceCVE: '3,500 CVE',
+    priceEUR: '€31.74',
+    priceGBP: '£26.47',
+    description: 'Full-body Swedish relaxation treatment designed to relieve whole-body stress and induce deep mental calm.'
+  },
+  {
+    id: 'bs-22',
+    category: 'massage',
+    categoryName: 'Massage & Spa',
+    title: 'Exclusive 60 Minutes Massage',
+    tier: 'exclusive',
+    priceCVE: '6,000 CVE',
+    priceEUR: '€54.41',
+    priceGBP: '£45.37',
+    description: 'Signature holistic massage: hot stones, customized pressure, aromatherapy diffusion, and full bodily revitalization.'
+  },
+  {
+    id: 'bs-23',
+    category: 'massage',
+    categoryName: 'Massage & Spa',
+    title: 'Standard 90 Minutes Massage',
+    tier: 'standard',
+    priceCVE: '5,000 CVE',
+    priceEUR: '€45.35',
+    priceGBP: '£37.81',
+    description: 'Extended head-to-toe therapeutic sanctuary allowing every major muscle group to fully unwind.'
+  },
+  {
+    id: 'bs-24',
+    category: 'massage',
+    categoryName: 'Massage & Spa',
+    title: 'Exclusive 90 Minutes Massage',
+    tier: 'exclusive',
+    priceCVE: '8,500 CVE',
+    priceEUR: '€77.09',
+    priceGBP: '£64.28',
+    description: 'Master therapist indulgence: hot volcanic stones, lymphatic drainage, scalp therapy, and deep botanical hydration.'
+  },
+  {
+    id: 'bs-25',
+    category: 'massage',
+    categoryName: 'Massage & Spa',
+    title: 'Standard Hot Stone Massage',
+    tier: 'standard',
+    priceCVE: '4,500 CVE',
+    priceEUR: '€40.81',
+    priceGBP: '£34.03',
+    description: 'Smooth basalt river stones heated to soothing temperatures to melt chronic back and shoulder tension.'
+  },
+  {
+    id: 'bs-26',
+    category: 'massage',
+    categoryName: 'Massage & Spa',
+    title: 'Exclusive Hot Stone Massage',
+    tier: 'exclusive',
+    priceCVE: '7,000 CVE',
+    priceEUR: '€63.48',
+    priceGBP: '£52.94',
+    description: 'VIP volcanic stone ritual infused with customized lavender and eucalyptus oils, spinal alignment, and thermal compresses.'
+  },
+  {
+    id: 'bs-27',
+    category: 'massage',
+    categoryName: 'Massage & Spa',
+    title: 'Standard Couples Massage',
+    tier: 'standard',
+    priceCVE: '6,000 CVE',
+    priceEUR: '€54.41',
+    priceGBP: '£45.37',
+    description: 'Synchronized dual massage in our private couples suite with soft ambient music and relaxing aromatherapy.'
+  },
+  {
+    id: 'bs-28',
+    category: 'massage',
+    categoryName: 'Massage & Spa',
+    title: 'Exclusive Couples Massage',
+    tier: 'exclusive',
+    priceCVE: '10,000 CVE',
+    priceEUR: '€90.69',
+    priceGBP: '£75.62',
+    description: 'VIP couples romance package: champagne greeting, hot stone integration, foot soak ritual, and 75 minutes of total harmony.'
+  },
 
-  showToast('Appointment Request Sent', 'Our studio concierge will contact you via WhatsApp to confirm your treatment slot.');
+  // SPECIALIST & BESPOKE
+  {
+    id: 'bs-29',
+    category: 'custom',
+    categoryName: 'Nails & Lashes',
+    title: 'Sculpted Acrylics & BIAB Builder Gel',
+    tier: 'standard',
+    priceCVE: '3,000–5,500 CVE',
+    priceEUR: '€27.20–49.90',
+    priceGBP: '£22.70–41.60',
+    description: 'Custom sculpted nail extensions, French ombré, chrome finish, or hand-painted nail artistry.'
+  },
+  {
+    id: 'bs-30',
+    category: 'custom',
+    categoryName: 'Nails & Lashes',
+    title: 'Custom Lash Technician Artistry',
+    tier: 'standard',
+    priceCVE: '3,500–6,500 CVE',
+    priceEUR: '€31.74–58.95',
+    priceGBP: '£26.47–49.15',
+    description: 'Classic single-lash, light hybrid, or Russian mega volume sets styled precisely to your eye shape.'
+  },
+  {
+    id: 'bs-31',
+    category: 'custom',
+    categoryName: 'Special Consultation',
+    title: '✨ Special / Bespoke Custom Beauty Service',
+    tier: 'special',
+    priceCVE: 'Price on Consultation',
+    priceEUR: 'Price on Consultation',
+    priceGBP: 'Price on Consultation',
+    description: 'Unlisted service, bridal entourage, private home call, photoshoot package, or custom combination. Price disclosed after WhatsApp consultation.'
+  }
+];
 
-  const waText = encodeURIComponent(
-    `Hello TP Global Beauty Studio, I submitted an appointment request for ${lead.serviceOrItem}. Name: ${lead.customerName}. Please confirm available time slots.`
-  );
-  window.open(`https://wa.me/${CONTACT_INFO.nigeriaWhatsApp}?text=${waText}`, '_blank');
+function initBeautyRateCard() {
+  renderBeautyRateCard();
+}
+
+function switchBeautyCurrency(curr) {
+  APP_STATE.beautyCurrency = curr;
+  document.querySelectorAll('.b-curr-btn').forEach(btn => {
+    if (btn.getAttribute('data-bcurr') === curr) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+  renderBeautyRateCard();
+  showToast('Beauty Currency Changed', `Displaying treatment rate card in ${curr}.`);
+}
+
+function filterBeautyMenu(cat) {
+  APP_STATE.beautyCategory = cat;
+  document.querySelectorAll('.b-cat-btn').forEach(btn => {
+    if (btn.getAttribute('data-bcat') === cat) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+  renderBeautyRateCard();
+}
+
+function renderBeautyRateCard() {
+  const container = document.getElementById('rateCardContainer');
+  if (!container) return;
+
+  const currentCat = APP_STATE.beautyCategory || 'all';
+  const curr = APP_STATE.beautyCurrency || 'CVE';
+
+  const filtered = currentCat === 'all'
+    ? BEAUTY_SERVICES_DATA
+    : BEAUTY_SERVICES_DATA.filter(item => item.category === currentCat);
+
+  container.innerHTML = `
+    <div class="rate-card-grid">
+      ${filtered.map(item => {
+        let priceDisplay = '';
+        let altDisplay = '';
+
+        if (item.tier === 'special') {
+          priceDisplay = 'Disclosed on Consultation';
+          altDisplay = 'Bespoke quote via WhatsApp';
+        } else if (curr === 'CVE') {
+          priceDisplay = item.priceCVE;
+          altDisplay = `${item.priceEUR} • ${item.priceGBP}`;
+        } else if (curr === 'EUR') {
+          priceDisplay = item.priceEUR;
+          altDisplay = `${item.priceCVE} • ${item.priceGBP}`;
+        } else {
+          priceDisplay = item.priceGBP;
+          altDisplay = `${item.priceCVE} • ${item.priceEUR}`;
+        }
+
+        const tierClass = item.tier === 'exclusive' ? 'exclusive' : item.tier === 'special' ? 'special' : 'standard';
+        const tierLabel = item.tier === 'exclusive' ? 'Exclusive Luxury' : item.tier === 'special' ? '✨ Special' : 'Standard';
+
+        return `
+          <div class="rate-item-card">
+            <div class="rate-header-row">
+              <h4 class="rate-item-title">${item.title}</h4>
+              <span class="tier-pill ${tierClass}">${tierLabel}</span>
+            </div>
+            <div class="rate-cat-tag">${item.categoryName}</div>
+            <p style="font-size: 0.8rem; color: #94A3B8; line-height: 1.45; margin-bottom: 14px; flex-grow: 1;">${item.description}</p>
+            <div class="rate-footer-row">
+              <div class="rate-price-box">
+                <span class="rate-main-price">${priceDisplay}</span>
+                <span class="rate-alt-price">${altDisplay}</span>
+              </div>
+              <button type="button" class="btn-book-rate" onclick="selectBeautyServiceFromRate('${item.title}', '${item.tier}')">
+                Book This
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('')}
+    </div>
+  `;
+}
+
+function selectBeautyServiceFromRate(serviceTitle, tier) {
+  const select = document.getElementById('b_service');
+  if (select) {
+    let found = false;
+    for (let i = 0; i < select.options.length; i++) {
+      if (select.options[i].text.toLowerCase().includes(serviceTitle.toLowerCase()) || 
+          select.options[i].value.toLowerCase().includes(serviceTitle.toLowerCase())) {
+        select.selectedIndex = i;
+        found = true;
+        break;
+      }
+    }
+    if (!found) {
+      if (tier === 'special') {
+        select.value = '✨ Special / Bespoke Service (Price Disclosed After Consultation)';
+      }
+    }
+  }
+
+  // Set tier radio
+  if (tier === 'exclusive') {
+    const radio = document.querySelector('input[name="serviceTier"][value="Exclusive VIP Tier"]');
+    if (radio) radio.checked = true;
+    toggleSpecialNotice(false);
+  } else if (tier === 'special') {
+    const radio = document.getElementById('tierSpecialRadio');
+    if (radio) radio.checked = true;
+    toggleSpecialNotice(true);
+  } else {
+    const radio = document.querySelector('input[name="serviceTier"][value="Standard Tier (Catalog Rate)"]');
+    if (radio) radio.checked = true;
+    toggleSpecialNotice(false);
+  }
+
+  const formCard = document.getElementById('beautyFormContainer');
+  if (formCard) {
+    formCard.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  showToast('Treatment Selected', `Selected "${serviceTitle}". Select your appointment slot below.`);
+}
+
+function selectBeautySpecial() {
+  const select = document.getElementById('b_service');
+  if (select) {
+    select.value = '✨ Special / Bespoke Service (Price Disclosed After Consultation)';
+  }
+  const specialRadio = document.getElementById('tierSpecialRadio');
+  if (specialRadio) {
+    specialRadio.checked = true;
+  }
+  toggleSpecialNotice(true);
+  const formCard = document.getElementById('beautyFormContainer');
+  if (formCard) {
+    formCard.scrollIntoView({ behavior: 'smooth' });
+  }
+  showToast('Special Consultation', 'Senior therapist will review your bespoke needs and disclose quote via WhatsApp.');
+}
+
+function handleBeautyServiceChange(val) {
+  if (val && val.includes('Special')) {
+    const specialRadio = document.getElementById('tierSpecialRadio');
+    if (specialRadio) {
+      specialRadio.checked = true;
+    }
+    toggleSpecialNotice(true);
+  } else {
+    toggleSpecialNotice(false);
+  }
+}
+
+function toggleSpecialNotice(isSpecial) {
+  const alert = document.getElementById('specialConsultAlert');
+  if (alert) {
+    if (isSpecial) {
+      alert.classList.remove('hidden');
+    } else {
+      alert.classList.add('hidden');
+    }
+  }
 }
 
 function selectBeautyService(serviceName) {
@@ -673,6 +1183,40 @@ function selectBeautyService(serviceName) {
   if (formCard) {
     formCard.scrollIntoView({ behavior: 'smooth' });
   }
+}
+
+// Division D: Beauty Studio Appointment Handler
+function handleBeautySubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
+
+  const selectedService = formData.get('service');
+  const serviceTier = formData.get('serviceTier') || 'Standard Tier';
+  const isSpecial = (serviceTier && serviceTier.includes('Special')) || (selectedService && selectedService.includes('Special'));
+
+  const lead = {
+    division: 'Beauty Studio',
+    leadType: isSpecial ? 'Bespoke Beauty Consultation' : 'Studio Appointment Request',
+    customerName: formData.get('clientName'),
+    phone: formData.get('phone'),
+    email: 'Phone/WhatsApp Preferred',
+    country: 'Cape Verde & Nigeria',
+    serviceOrItem: selectedService,
+    notes: `Tier / Preference: ${serviceTier}. Preferred Date: ${formData.get('preferredDate') || 'Flexible'}. Preferred Time: ${formData.get('preferredTime')}. Contact Method: ${formData.get('contactPref')}. Notes: ${formData.get('notes') || 'None'}`,
+    status: 'New'
+  };
+
+  createLead(lead);
+  form.reset();
+  toggleSpecialNotice(false);
+
+  showToast('Appointment Request Sent', 'Our studio concierge will contact you via WhatsApp to confirm your appointment.');
+
+  const waText = encodeURIComponent(
+    `Hello TP Global Beauty Studio, I submitted an appointment request for: ${lead.serviceOrItem}\n• Preference / Tier: ${serviceTier}\n• Client Name: ${lead.customerName}\n• Date: ${formData.get('preferredDate') || 'Flexible'}\n• Time: ${formData.get('preferredTime')}\n${isSpecial ? '• Note: Special / Bespoke request. Please disclose customized pricing after consultation.' : 'Please confirm available booking slots.'}`
+  );
+  window.open(`https://wa.me/${CONTACT_INFO.nigeriaWhatsApp}?text=${waText}`, '_blank');
 }
 
 // General Contact Form Handler
