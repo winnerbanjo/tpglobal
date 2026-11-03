@@ -972,6 +972,63 @@ input, select, textarea {
   opacity: 1;
 }
 
+.division-banner-wrap {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #1E2330 0%, #080A0E 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.division-banner-wrap.banner-travels {
+  background: radial-gradient(circle at center, #132438 0%, #070D15 100%);
+}
+
+.division-banner-wrap.banner-events {
+  background: radial-gradient(circle at center, #261D32 0%, #0A080F 100%);
+}
+
+.division-banner-wrap.banner-beauty {
+  background: radial-gradient(circle at center, #2B1824 0%, #0F080C 100%);
+}
+
+.div-banner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.div-banner-code {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--yellow-primary);
+  text-transform: uppercase;
+}
+
+.div-banner-symbol {
+  font-size: 2.6rem;
+  line-height: 1;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+  transition: transform 0.4s ease;
+}
+
+.division-card:hover .div-banner-symbol {
+  transform: scale(1.15) rotate(3deg);
+}
+
+.div-banner-tag {
+  font-size: 0.78rem;
+  color: #9EABB9;
+  font-weight: 600;
+}
+
 .division-pill {
   position: absolute;
   top: 12px;
@@ -1977,23 +2034,61 @@ input, select, textarea {
   color: #E2E8F0;
 }
 
-.cv-image-box {
+.cv-concierge-box {
+  background: radial-gradient(circle at center, #161D2B 0%, #090C12 100%);
+  border: 1.5px solid var(--yellow-border);
+  border-radius: var(--radius-lg);
+  padding: 32px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
-  height: 100%;
-  min-height: 360px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
-.cv-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.cv-hub-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(255, 220, 0, 0.12);
+  color: var(--yellow-primary);
+  border: 1px solid var(--yellow-border);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  margin-bottom: 12px;
+}
+
+.cv-concierge-box h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.cv-hub-location {
+  font-size: 0.85rem;
+  color: var(--yellow-primary);
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.cv-hub-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.cv-hf-item {
+  font-size: 0.85rem;
+  color: #D1D5DB;
+  font-weight: 500;
 }
 
 .cv-card-caption {
-  position: absolute;
-  bottom: 14px;
-  right: 14px;
-  left: 14px;
   background: rgba(7, 8, 11, 0.92);
   backdrop-filter: blur(8px);
   color: #FFFFFF;
@@ -2037,22 +2132,34 @@ input, select, textarea {
   box-shadow: var(--shadow-sm);
 }
 
-.pillar-media {
-  height: 170px;
-  overflow: hidden;
+.pillar-icon-box {
+  height: 150px;
+  background: radial-gradient(circle at center, #241D30 0%, #0B0812 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.4s ease;
 }
 
-.pillar-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-  opacity: 0.9;
+.pillar-card:hover .pillar-icon-box {
+  background: radial-gradient(circle at center, #302640 0%, #0F0A18 100%);
 }
 
-.pillar-card:hover .pillar-img {
-  transform: scale(1.04);
-  opacity: 1;
+.pillar-glyph {
+  font-size: 2.8rem;
+  line-height: 1;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+}
+
+.pillar-num {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--yellow-primary);
+  text-transform: uppercase;
 }
 
 .pillar-body {
@@ -2158,22 +2265,34 @@ input, select, textarea {
   border-color: var(--yellow-border);
 }
 
-.m-img-wrap {
-  height: 190px;
-  overflow: hidden;
+.m-service-banner {
+  height: 150px;
+  background: radial-gradient(circle at center, #291825 0%, #0D070C 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.4s ease;
 }
 
-.m-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-  opacity: 0.9;
+.menu-item-card:hover .m-service-banner {
+  background: radial-gradient(circle at center, #381E32 0%, #120910 100%);
 }
 
-.menu-item-card:hover .m-img {
-  transform: scale(1.04);
-  opacity: 1;
+.svc-banner-icon {
+  font-size: 2.8rem;
+  line-height: 1;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+}
+
+.svc-banner-code {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--yellow-primary);
+  text-transform: uppercase;
 }
 
 .m-body {
@@ -3528,21 +3647,36 @@ input, select, textarea {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 16px rgba(255, 220, 0, 0.15);
 }
 
-.island-img-wrap {
-  height: 200px;
+.island-banner-wrap {
+  height: 180px;
   position: relative;
-  overflow: hidden;
+  background: radial-gradient(circle at center, #172436 0%, #080D14 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
 }
 
-.island-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
+.island-banner-code {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: var(--yellow-primary);
+  line-height: 1;
+  text-shadow: 0 0 24px rgba(255, 220, 0, 0.3);
+  margin-bottom: 4px;
 }
 
-.island-card:hover .island-img {
-  transform: scale(1.05);
+.island-banner-name {
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #FFFFFF;
+  text-transform: uppercase;
 }
 
 .island-badge {
