@@ -9,6 +9,86 @@
 // ========================================================
 const FASHION_CATALOGUE = [
   {
+    id: 'prod-new-001',
+    slug: 'navy-resort-linen-shorts-coord-set',
+    title: 'Navy Resort Linen Shirt & Shorts Co-Ord Set',
+    gender: 'Men',
+    category: 'Ready-to-Wear',
+    fabric: 'Pure Breathable Linen',
+    noPrice: true,
+    priceNGN: null,
+    priceGBP: null,
+    isStartingPrice: false,
+    image: 'assets/images/fashion/navy-linen-shorts-set.jpg',
+    description: 'Bespoke short-sleeve resort button-up tunic featuring a mandarin collar and vertical tuck seams, paired with tailored drawstring linen shorts. Ideal for yachting, Cape Verde coastal retreats, and relaxed luxury occasions.',
+    ambassadorApproved: true,
+    badge: 'Resort Collection'
+  },
+  {
+    id: 'prod-new-002',
+    slug: 'earthtone-geometric-bohemian-linen-set',
+    title: 'Earthtone Geometric Color-Block Bohemian Linen Set',
+    gender: 'Men',
+    category: 'Ready-to-Wear',
+    fabric: 'Artisanal Woven Linen',
+    noPrice: true,
+    priceNGN: null,
+    priceGBP: null,
+    isStartingPrice: false,
+    image: 'assets/images/fashion/earth-geometric-linen-set.jpg',
+    description: 'Statement bohemian two-piece featuring abstract earth-toned geometric panels in terracotta, olive green, espresso black, and ecru. Features a 3/4-sleeve notched henley tunic and flowing easy-drape trousers.',
+    ambassadorApproved: true,
+    badge: 'Artisanal Luxury'
+  },
+  {
+    id: 'prod-new-003',
+    slug: 'sunset-orange-plaid-resort-linen-ensemble',
+    title: 'Sunset Plaid Woven Linen Resort Ensemble',
+    gender: 'Men',
+    category: 'Ready-to-Wear',
+    fabric: 'Textured Plaid Linen',
+    noPrice: true,
+    priceNGN: null,
+    priceGBP: null,
+    isStartingPrice: false,
+    image: 'assets/images/fashion/orange-plaid-resort-set.jpg',
+    description: 'Vibrant sunset orange, sky blue, and cream plaid woven linen lounge set. Relaxed split-neck tunic shirt with matching drawstring lounge trousers for effortless warm-weather sophistication.',
+    ambassadorApproved: false,
+    badge: 'Summer Resort'
+  },
+  {
+    id: 'prod-new-004',
+    slug: 'mustard-pitch-black-tribal-stripe-linen-set',
+    title: 'Mustard & Pitch-Black Tribal Stripe Linen Two-Piece',
+    gender: 'Men',
+    category: 'Ready-to-Wear',
+    fabric: 'Textured Tribal Stripe Linen',
+    noPrice: true,
+    priceNGN: null,
+    priceGBP: null,
+    isStartingPrice: false,
+    image: 'assets/images/fashion/tribal-stripe-mustard-set.jpg',
+    description: 'Vertical tribal geometric stripe ensemble incorporating mustard gold, pitch black, and natural cream. Distinctive elongated silhouette with relaxed comfort trousers, honoring African textile roots.',
+    ambassadorApproved: true,
+    badge: 'Tribal Luxe'
+  },
+  {
+    id: 'prod-new-005',
+    slug: 'geometric-maze-labyrinth-linen-ensemble',
+    title: 'Graphic Labyrinth Maze Print Linen Ensemble',
+    gender: 'Men',
+    category: 'Ready-to-Wear',
+    fabric: 'Graphic Pattern Linen',
+    noPrice: true,
+    priceNGN: null,
+    priceGBP: null,
+    isStartingPrice: false,
+    image: 'assets/images/fashion/geometric-maze-linen-set.jpg',
+    description: 'Mesmerizing geometric maze labyrinth print in rich dark chocolate on natural ecru linen. Contemporary oversized cut tunic paired with coordinating wide-leg trousers for bold cultural expression.',
+    ambassadorApproved: false,
+    badge: 'Graphic Artistry'
+  },
+  {
     id: 'prod-001',
     slug: 'mens-luxury-rtw-italian-cotton-silk',
     title: 'Men’s Luxury Ready-to-Wear (Italian Cotton & Silk)',
@@ -321,6 +401,9 @@ function switchCurrency(curr) {
 }
 
 function formatPrice(product) {
+  if (product.noPrice || (product.priceNGN === null && product.priceGBP === null)) {
+    return 'Order on WhatsApp';
+  }
   if (APP_STATE.currency === 'GBP') {
     if (product.priceGBP !== null) {
       return `£${product.priceGBP.toLocaleString()}`;
@@ -337,6 +420,9 @@ function formatPrice(product) {
 }
 
 function getSecondaryPrice(product) {
+  if (product.noPrice || (product.priceNGN === null && product.priceGBP === null)) {
+    return 'Tap anywhere to order';
+  }
   if (APP_STATE.currency === 'GBP') {
     if (product.priceNGN) {
       const prefix = product.isStartingPrice ? 'From ' : '';
@@ -437,12 +523,46 @@ function renderCatalogue() {
   emptyState.classList.add('hidden');
 
   grid.innerHTML = filtered.map(item => {
+    const isDirectOrder = item.noPrice || (item.priceNGN === null && item.priceGBP === null);
     const formattedPrice = formatPrice(item);
     const secondaryPrice = getSecondaryPrice(item);
     const waMessage = encodeURIComponent(
-      `Hello TP Stitches, I am interested in ${item.title} (${item.fabric}) listed at ${formattedPrice}. Please share available sizing and delivery schedule.`
+      `Hello TP Stitches, I want to order the "${item.title}" (${item.fabric || 'Luxury Wear'}). Please share available sizing, fitting, and delivery timeline.`
     );
     const waLink = `https://wa.me/${CONTACT_INFO.nigeriaWhatsApp}?text=${waMessage}`;
+
+    if (isDirectOrder) {
+      return `
+        <article class="product-card direct-order-card" data-id="${item.id}" onclick="handleDirectWhatsAppOrder('${waLink}', event)">
+          <div class="product-img-box">
+            <img src="${item.image}" alt="${item.title}" class="product-img" loading="lazy">
+            <div class="product-badge-group">
+              <span class="p-pill gold">${item.badge}</span>
+              <span class="p-pill">${item.gender}</span>
+              <span class="p-pill wa-pill">⚡ Order via WhatsApp</span>
+            </div>
+            <div class="direct-order-overlay">
+              <span>💬 Click to Order on WhatsApp</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <span class="product-fabric-tag">${item.fabric}</span>
+            <h3 class="product-title">${item.title}</h3>
+            <p class="product-desc">${item.description}</p>
+            <div class="product-pricing-row direct-order-price-row">
+              <span class="price-main order-highlight">Order via WhatsApp</span>
+              <span class="price-alt">Tap anywhere to order</span>
+            </div>
+            <div class="product-action-row single-action">
+              <a href="${waLink}" target="_blank" rel="noopener noreferrer" class="btn-card-action btn-wa-full-width" onclick="event.stopPropagation(); trackProductEnquiry('${item.id}')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>Order on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      `;
+    }
 
     return `
       <article class="product-card" data-id="${item.id}">
@@ -477,6 +597,14 @@ function renderCatalogue() {
   }).join('');
 }
 
+function handleDirectWhatsAppOrder(waLink, event) {
+  if (event) {
+    event.stopPropagation();
+  }
+  trackProductEnquiry('direct-whatsapp-order');
+  window.open(waLink, '_blank');
+}
+
 // ========================================================
 // 8. PRODUCT MODAL (QUICK VIEW & SIZE SELECTOR)
 // ========================================================
@@ -494,12 +622,17 @@ function openProductModal(productId) {
 
 function renderModalProduct(product) {
   const container = document.getElementById('modalProductContent');
+  const isDirectOrder = product.noPrice || (product.priceNGN === null && product.priceGBP === null);
   const priceDisplay = formatPrice(product);
   const secondaryDisplay = getSecondaryPrice(product);
 
-  const waMessage = encodeURIComponent(
-    `Hello TP Stitches, I am enquiring about ${product.title} (${product.fabric}) priced at ${priceDisplay}. I would like to order or arrange a fitting.`
-  );
+  const waMessage = isDirectOrder
+    ? encodeURIComponent(
+        `Hello TP Stitches, I want to order the "${product.title}" (${product.fabric || 'Luxury Wear'}). Please share available sizing, fitting, and delivery timeline.`
+      )
+    : encodeURIComponent(
+        `Hello TP Stitches, I am enquiring about ${product.title} (${product.fabric}) priced at ${priceDisplay}. I would like to order or arrange a fitting.`
+      );
   const waLink = `https://wa.me/${CONTACT_INFO.nigeriaWhatsApp}?text=${waMessage}`;
 
   container.innerHTML = `
@@ -511,8 +644,8 @@ function renderModalProduct(product) {
       <h2 class="m-detail-title">${product.title}</h2>
       
       <div class="m-detail-pricing">
-        <span class="m-price-ngn">${priceDisplay}</span>
-        <span class="m-price-gbp">${secondaryDisplay ? `(${secondaryDisplay})` : ''}</span>
+        <span class="m-price-ngn ${isDirectOrder ? 'order-highlight' : ''}">${isDirectOrder ? 'Order via WhatsApp' : priceDisplay}</span>
+        <span class="m-price-gbp">${isDirectOrder ? 'Direct Custom Order' : (secondaryDisplay ? `(${secondaryDisplay})` : '')}</span>
       </div>
 
       <p class="m-detail-desc">${product.description}</p>
@@ -527,7 +660,7 @@ function renderModalProduct(product) {
       <div class="m-cta-group">
         <a href="${waLink}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" onclick="trackProductEnquiry('${product.id}')">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-          Enquire &amp; Order on WhatsApp
+          ${isDirectOrder ? 'Order Directly on WhatsApp' : 'Enquire &amp; Order on WhatsApp'}
         </a>
         <button class="btn btn-outline" style="color: var(--text-main); border-color: var(--border-color);" onclick="closeProductModal()">
           Continue Browsing
