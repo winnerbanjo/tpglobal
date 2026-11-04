@@ -335,7 +335,9 @@ const APP_STATE = {
 const CONTACT_INFO = {
   nigeriaWhatsApp: '2347042297094',
   capeVerdeWhatsApp: '2389145325',
-  email: 'tpglobalservices14@gmail.com'
+  email: 'tpglobalservices14@gmail.com',
+  instagram: 'tpglobalservices14',
+  instagramUrl: 'https://instagram.com/tpglobalservices14'
 };
 
 // ========================================================

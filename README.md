@@ -71,7 +71,7 @@ The website has been purposefully designed with a **slick, high-impact Yellow & 
   - *Address*: Praça Center Palmarejo, Cape Verde
   - *Phone / WhatsApp*: `+238 914 5325`
 - **Official Email**: `tpglobalservices14@gmail.com`
-- **Instagram**: `@tpwears_14`
+- **Instagram**: `@tpglobalservices14`
 - **TikTok**: `@tp_stitches`
 
 ---
