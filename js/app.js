@@ -259,7 +259,7 @@ const FASHION_CATALOGUE = [
     priceNGN: null,
     priceGBP: null,
     isStartingPrice: false,
-    image: 'assets/images/fashion/royal-white-ceremonial-agbada.jpg',
+    image: 'assets/images/fashion/white-embroidered-agbada-studio-mannequin.jpg',
     description: 'Immaculate white grand Agbada 3-piece featuring tone-on-tone dense geometric chest embroidery, matching tailored trousers, and inner tunic. Ideal for high-profile weddings, coronation events, and prestigious gala receptions.',
     ambassadorApproved: true,
     badge: 'Royal Masterpiece'

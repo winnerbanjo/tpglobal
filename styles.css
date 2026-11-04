@@ -972,6 +972,10 @@ input, select, textarea {
   opacity: 1;
 }
 
+.card-stitches .division-img {
+  object-position: center 20%;
+}
+
 .division-banner-wrap {
   position: relative;
   height: 200px;
