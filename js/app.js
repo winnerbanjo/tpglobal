@@ -694,6 +694,18 @@ function handleDirectWhatsAppOrder(waLink, event) {
   window.open(waLink, '_blank');
 }
 
+function handleBeautyWhatsAppBooking(serviceName, event) {
+  if (event) {
+    event.stopPropagation();
+  }
+  const cleanId = (serviceName || 'service').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  trackProductEnquiry(`beauty-booking-${cleanId}`);
+  const msg = encodeURIComponent(
+    `Hello TP Global Beauty Studio, I would like to book an appointment for: "${serviceName}". Please share available slots, location, and preparation details.`
+  );
+  window.open(`https://wa.me/${CONTACT_INFO.nigeriaWhatsApp}?text=${msg}`, '_blank');
+}
+
 // ========================================================
 // 8. PRODUCT MODAL (QUICK VIEW & SIZE SELECTOR)
 // ========================================================
