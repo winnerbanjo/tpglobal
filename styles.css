@@ -976,6 +976,10 @@ input, select, textarea {
   object-position: center 20%;
 }
 
+.card-travels .division-img {
+  object-position: center 25%;
+}
+
 .card-events .division-img {
   object-position: center 35%;
 }
