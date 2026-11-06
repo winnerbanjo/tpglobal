@@ -9,6 +9,22 @@
 // ========================================================
 const FASHION_CATALOGUE = [
   {
+    id: 'prod-black-gold-safari-suit',
+    slug: 'bespoke-black-gold-button-safari-suit',
+    title: 'Bespoke Obsidian Black Gold-Button Safari Suit',
+    gender: 'Men',
+    category: 'Safari',
+    fabric: 'Italian Cotton & Silk',
+    noPrice: true,
+    priceNGN: null,
+    priceGBP: null,
+    isStartingPrice: false,
+    image: 'assets/images/fashion/black-gold-button-safari-suit.jpg',
+    description: 'Impeccably tailored short-sleeve safari jacket in obsidian black Italian wool-cotton blend. Features sculpted notched lapels, embossed gold crest buttons, waist belt loop detailing, and four pleated flap cargo pockets for authoritative modern executive style.',
+    ambassadorApproved: true,
+    badge: 'Executive Tailoring'
+  },
+  {
     id: 'prod-mr-armstrong-aso-oke-set',
     slug: 'executive-striped-aso-oke-trouser-tunic-set',
     title: 'Executive Striped Aso-Oke Trouser & White Tunic Ensemble',
