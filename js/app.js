@@ -377,22 +377,6 @@ const FASHION_CATALOGUE = [
     badge: 'Haute Couture'
   },
   {
-    id: 'prod-new-015',
-    slug: 'burgundy-navy-adire-batik-lounge-ensembles',
-    title: 'Executive Adire Batik Two-Tone Tunic & Trousers Sets',
-    gender: 'Men',
-    category: 'Ready-to-Wear',
-    fabric: 'Heritage Wax Batik Cotton',
-    noPrice: true,
-    priceNGN: null,
-    priceGBP: null,
-    isStartingPrice: false,
-    image: 'assets/images/fashion/burgundy-navy-adire-batik-lounge-sets.jpg',
-    description: 'Distinguished two-piece native lounge sets combining solid yoke panels with authentic hand-batiked African rhythm motifs in royal navy blue and deep regal burgundy. Ideal for cultural celebrations and evening affairs.',
-    ambassadorApproved: true,
-    badge: 'Bespoke Batik'
-  },
-  {
     id: 'prod-new-016',
     slug: 'royal-white-ceremonial-agbada-ensemble',
     title: 'Royal White Grand Ceremonial 3-Piece Agbada',
