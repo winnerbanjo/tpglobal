@@ -577,7 +577,7 @@ function initRouting() {
 }
 
 function handleRoute(viewName) {
-  const validViews = ['home', 'stitches', 'travels', 'events', 'beauty', 'about', 'contact', 'admin'];
+  const validViews = ['home', 'stitches', 'travels', 'events', 'beauty', 'about', 'contact', 'admin', 'privacy', 'terms'];
   const targetView = validViews.includes(viewName) ? viewName : 'home';
 
   APP_STATE.currentView = targetView;
