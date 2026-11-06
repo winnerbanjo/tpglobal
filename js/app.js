@@ -9,6 +9,22 @@
 // ========================================================
 const FASHION_CATALOGUE = [
   {
+    id: 'prod-mr-armstrong-aso-oke-set',
+    slug: 'executive-striped-aso-oke-trouser-tunic-set',
+    title: 'Executive Striped Aso-Oke Trouser & White Tunic Ensemble',
+    gender: 'Men',
+    category: 'Ready-to-Wear',
+    fabric: 'Aso-Oke',
+    noPrice: true,
+    priceNGN: null,
+    priceGBP: null,
+    isStartingPrice: false,
+    image: 'assets/images/fashion/mr-armstrong-striped-aso-oke-cover.jpg',
+    description: 'Bespoke executive native two-piece ensemble featuring a crisp white short-sleeve native tunic with tailored pocket framing, paired with heritage hand-woven blue, beige, and navy striped Aso-Oke trousers and coordinating folded Fila cap.',
+    ambassadorApproved: true,
+    badge: 'Executive Signature'
+  },
+  {
     id: 'prod-regal-aso-oke-agbada',
     slug: 'regal-aso-oke-agbada-dignitary-ensemble',
     title: 'Regal Magenta & Olive Aso-Oke Agbada Dignitary Ensemble',
